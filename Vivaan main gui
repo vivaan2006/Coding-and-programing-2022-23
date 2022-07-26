@@ -3,40 +3,37 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-//import java.util.HashMap;
+import java.util.HashMap;
 
 public class GUI extends MyFrame implements ActionListener {
-    JLabel messageLabel = new JLabel();
-   // HashMap<String,String>  logininfo = new HashMap<String,String>();
-    //credentials no class needed//
-    // { logininfo.put("Vivaan", "Test");
-   // }
-    // HashMap getlogininfo(){ //idk if needed to be protected or not//
-       // return logininfo;}//
+    static IdPassword Id = new IdPassword();
 
+    JLabel messageLabel = new JLabel();
     private static JLabel userLabel;
     private static JTextField userText;
     private static JLabel passwordLabel;
     private static JPasswordField Passwordtext;
     private static JButton button;
-
     private static JLabel success;
     private static JLabel adminLabel;
-
     private static JLabel adminuser;
     private static JTextField adminText;
     private static JLabel adminPassword;
     private static JPasswordField adminPasswordBox;
     private static JButton adminButton;
    private static JLabel adminSuccess;
+   private static JFrame frame;
+
+   HashMap<String,String> LoginInfo = new HashMap<String, String>();
 
     public static void main(String[] args) {
-        GUI gui = new GUI();
+        GUI gui = new GUI(Id);
     }
 
-    public GUI() {
+    public GUI(HashMap<String,String> Login) {
+        LoginInfo = Login;
         //  image and background
-        JFrame frame = new JFrame();
+        frame = new JFrame();
         ImageIcon img = new ImageIcon(this.getClass().getResource("Sunset-900x600.jpg"));
         JLabel background = new JLabel(img);
         background.setSize(900, 600);
@@ -126,22 +123,27 @@ public class GUI extends MyFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-     /* if(e.getSource()== button){
+      if(e.getSource()== button){
           String userID = userText.getText();
           String password = String.valueOf(Passwordtext);
-          if(logininfo.containsKey(userID)){
-              if(logininfo.get(userID).equals(password)){
-                  messageLabel.setForeground(Color.BLUE);
+          if(LoginInfo.containsKey(userID)){
+              if(LoginInfo.get(userID).equals(password)){
+                  messageLabel.setForeground(Color.GREEN);
                   messageLabel.setText("Login Successful");
+                  frame.dispose();
+                  new MyFrame();
+
                   }
-                  } }*/
-        String user = userText.getText();
-        String Password = Passwordtext.getText();
+
+          }
+      }
+     //   String user = userText.getText();
+        // String Password = Passwordtext.getText();
         String adminUser = adminText.getText();
         String adminPassword = adminPasswordBox.getText();
-        System.out.println(user + " ," + Password);
+       // System.out.println(user + " ," + Password);
 
-        if (user.equals("Vivaan") && Password.equals("Test")){
+       /* if (user.equals("Vivaan") && Password.equals("Test")){
               success.setFont(new Font("Serif", Font.BOLD, 20));
               success.setForeground(Color.GREEN);
               success.setText("Login Successful!"); // else statement wrong output//
@@ -152,13 +154,15 @@ else{
             success.setForeground(Color.RED);
             success.setText("try again!");
         }
+        */
+
 
         System.out.println(adminUser + " ," + adminPassword);
         if(adminUser.equals("Adminuser") && adminPassword.equals("Adminpassword")){
             adminSuccess.setFont(new Font("Serif", Font.BOLD, 20));
             adminSuccess.setForeground(Color.GREEN);
             adminSuccess.setText("Login success");
-            this.dispose();
+            frame.dispose();
             new MyFrame();
 
         }
