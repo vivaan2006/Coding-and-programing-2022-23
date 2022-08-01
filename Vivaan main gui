@@ -17,21 +17,22 @@ public class GUI extends MyFrame implements ActionListener {
     private static JLabel success;
     private static JLabel adminLabel;
     private static JLabel adminuser;
-    private static JTextField adminText;
+    static JTextField adminText;
     private static JLabel adminPassword;
     private static JPasswordField adminPasswordBox;
     private static JButton adminButton;
    private static JLabel adminSuccess;
    private static JFrame frame;
 
-   HashMap<String,String> LoginInfo = new HashMap<String, String>();
+     HashMap<String,String> logininfo = new HashMap<String, String>();
 
     public static void main(String[] args) {
         GUI gui = new GUI(Id);
     }
 
     public GUI(HashMap<String,String> Login) {
-        LoginInfo = Login;
+
+        logininfo = Login;
         //  image and background
         frame = new JFrame();
         ImageIcon img = new ImageIcon(this.getClass().getResource("Sunset-900x600.jpg"));
@@ -126,8 +127,8 @@ public class GUI extends MyFrame implements ActionListener {
       if(e.getSource()== button){
           String userID = userText.getText();
           String password = String.valueOf(Passwordtext);
-          if(LoginInfo.containsKey(userID)){
-              if(LoginInfo.get(userID).equals(password)){
+          if(logininfo.containsKey(userID)){
+              if(logininfo.get(userID).equals(password)){
                   messageLabel.setForeground(Color.GREEN);
                   messageLabel.setText("Login Successful");
                   frame.dispose();
@@ -157,11 +158,12 @@ else{
         */
 
 
-        System.out.println(adminUser + " ," + adminPassword);
+        System.out.println(adminUser + ", " + adminPassword);
         if(adminUser.equals("Adminuser") && adminPassword.equals("Adminpassword")){
             adminSuccess.setFont(new Font("Serif", Font.BOLD, 20));
             adminSuccess.setForeground(Color.GREEN);
             adminSuccess.setText("Login success");
+            MyFrame Welcome = new MyFrame();
             frame.dispose();
             new MyFrame();
 
@@ -176,6 +178,11 @@ else{
 
 
 }
+
+
+
+
+
 
 
 
