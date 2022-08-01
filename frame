@@ -1,11 +1,32 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class MyFrame extends JFrame implements ActionListener {
+public class MyFrame  {
+
+    JFrame frame = new JFrame();
+    JLabel WelcomeLabel = new JLabel("Welcome!");
     MyFrame(){
-    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    WelcomeLabel.setBounds(0,0,300,35);
+    WelcomeLabel.setFont(new Font(null,Font.PLAIN,25));
+    frame.add(WelcomeLabel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(450,600);
+        frame.setLayout(null);
+        frame.setVisible(true);
+    }
+
+
+
+}
+
+
+
+
+
+
+
+/*this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setSize(500,500);
     this.setLayout(new FlowLayout());
     JMenuBar MenuBar = new JMenuBar();
@@ -17,10 +38,9 @@ public class MyFrame extends JFrame implements ActionListener {
         MenuBar.add(differentMenu);
         this.setJMenuBar(MenuBar);
         this.setVisible(true);
-
-}
-    @Override
+          @Override
     public void actionPerformed(ActionEvent e) {
 
     }
-}
+}*/
+
