@@ -1,46 +1,60 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class MyFrame  {
 
-    JFrame frame = new JFrame();
-    JLabel WelcomeLabel = new JLabel("Welcome!");
-    MyFrame(){
+public class MyFrame extends JFrame implements ActionListener {
+    JMenuBar MenuBar;
+    JMenu Time;
+    JMenu Progress;
+    JMenu Leaderboard;
+    JMenu Prizes;
+    JMenu pastWins;
+    JMenu Calender;
+    JMenu Logout;
+    JMenu Help;
+    private static JFrame MyFrame;
 
-    WelcomeLabel.setBounds(0,0,300,35);
-    WelcomeLabel.setFont(new Font(null,Font.PLAIN,25));
-    frame.add(WelcomeLabel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(450,600);
-        frame.setLayout(null);
-        frame.setVisible(true);
+        MyFrame(){
+       //options//
+            this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.setSize(900,600);
+            this.setLayout(new FlowLayout());
+            MenuBar = new JMenuBar();
+             Time = new JMenu("Add Time"); //sort of like a shopping cart, based on the events attended, attach points.
+             Progress = new JMenu("My Progress"); //includes points//
+             Leaderboard = new JMenu("Leaderboard");
+             Prizes = new JMenu("Prizes");
+             pastWins = new JMenu("Past Winners"); //include random and most points//
+             Calender = new JMenu("Calender"); //basically events rn//
+             Logout = new JMenu("Logout");
+             Help = new JMenu("Help");
+
+     //action listeners//
+     Time.addActionListener(this);
+     Progress.addActionListener(this);
+     Leaderboard.addActionListener(this);
+     Prizes.addActionListener(this);
+     pastWins.addActionListener(this);
+     Calender.addActionListener(this);
+     Logout.addActionListener(this);
+    //menubar add//
+           MenuBar.add(Time);
+            MenuBar.add(Progress);
+            MenuBar.add(Leaderboard);
+            MenuBar.add(Prizes);
+            MenuBar.add(pastWins);
+            MenuBar.add(Calender);
+            MenuBar.add(Logout);
+            MenuBar.add(Help);
+            this.setJMenuBar(MenuBar);
+            this.setVisible(true);
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+        }
     }
-
-
-
-}
-
-
-
-
-
-
-
-/*this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    this.setSize(500,500);
-    this.setLayout(new FlowLayout());
-    JMenuBar MenuBar = new JMenuBar();
-    JMenu randomMenu = new JMenu("option 1");
-    JMenu otherMenu = new JMenu("option 1");
-    JMenu differentMenu = new JMenu("option 2");
-        MenuBar.add(randomMenu);
-        MenuBar.add(otherMenu);
-        MenuBar.add(differentMenu);
-        this.setJMenuBar(MenuBar);
-        this.setVisible(true);
-          @Override
-    public void actionPerformed(ActionEvent e) {
-
-    }
-}*/
 
