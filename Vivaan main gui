@@ -21,16 +21,16 @@ public class GUI extends MyFrame implements ActionListener {
     private static JLabel adminPassword;
     private static JPasswordField adminPasswordBox;
     private static JButton adminButton;
-   private static JLabel adminSuccess;
-   private static JFrame frame;
+    private static JLabel adminSuccess;
+    private static JFrame frame;
 
-     HashMap<String,String> logininfo = new HashMap<String, String>();
+    HashMap<String, String> logininfo = new HashMap<String, String>();
 
     public static void main(String[] args) {
         GUI gui = new GUI(Id);
     }
 
-    public GUI(HashMap<String,String> Login) {
+    public GUI(HashMap<String, String> Login) {
 
         logininfo = Login;
         //  image and background
@@ -39,19 +39,19 @@ public class GUI extends MyFrame implements ActionListener {
         JLabel background = new JLabel(img);
         background.setSize(900, 600);
 
-            //student login bold characters//
-       JLabel  StudentLabel = new JLabel("Student Login");
-       StudentLabel.setBounds(90, 100, 350, 50);
+        //student login bold characters//
+        JLabel StudentLabel = new JLabel("Student Login");
+        StudentLabel.setBounds(90, 100, 350, 50);
         StudentLabel.setFont(new Font("Serif", Font.BOLD, 30));
         background.add(StudentLabel);
 
         //user name//
-         userLabel = new JLabel("Username");
+        userLabel = new JLabel("Username");
         userLabel.setBounds(25, 200, 80, 25);
         background.add(userLabel);
 
         //username textbox//
-         userText = new JTextField(20);
+        userText = new JTextField(20);
         userText.setBounds(115, 200, 165, 25);
         background.add(userText);
 
@@ -60,7 +60,7 @@ public class GUI extends MyFrame implements ActionListener {
         passwordLabel.setBounds(25, 250, 80, 25);
         background.add(passwordLabel);
         //password textbox//
-         Passwordtext = new JPasswordField(20);
+        Passwordtext = new JPasswordField(20);
         Passwordtext.setBounds(115, 250, 165, 25);
         background.add(Passwordtext);
         //press here button//
@@ -71,8 +71,9 @@ public class GUI extends MyFrame implements ActionListener {
 
         //success//
         success = new JLabel("");
-        success.setBounds(118,270,300,25);
+        success.setBounds(118, 270, 300, 25);
         background.add(success);
+
         //success for Admin//
         adminSuccess = new JLabel("");
         adminSuccess.setBounds(590, 270, 150, 25);
@@ -87,30 +88,30 @@ public class GUI extends MyFrame implements ActionListener {
 
         //admin username //
 
-         adminuser = new JLabel("Username");
+        adminuser = new JLabel("Username");
         adminuser.setBounds(520, 200, 80, 25);// change x
         background.add(adminuser);
 
         //admin usertextbox//
 
-         adminText = new JTextField(20);
+        adminText = new JTextField(20);
         adminText.setBounds(590, 200, 165, 25);
         background.add(adminText);
 
         //admin password//
-         adminPassword = new JLabel("Password"); // change x//
+        adminPassword = new JLabel("Password"); // change x//
         adminPassword.setBounds(520, 250, 80, 25);
         background.add(adminPassword);
 
         //admin password textbox//
-         adminPasswordBox = new JPasswordField(20);
+        adminPasswordBox = new JPasswordField(20);
         adminPasswordBox.setBounds(590, 250, 165, 25);
         background.add(adminPasswordBox);
 
         //login button for admin//
-         adminButton = new JButton("Login");
+        adminButton = new JButton("Login");
         adminButton.setBounds(600, 300, 150, 25);
-      adminButton.addActionListener(this);
+        adminButton.addActionListener(this);
         background.add(adminButton);
 
 //white background //
@@ -124,7 +125,7 @@ public class GUI extends MyFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-      if(e.getSource()== button){
+    /*  if(e.getSource()== button){
           String userID = userText.getText();
           String password = String.valueOf(Passwordtext);
           if(logininfo.containsKey(userID)){
@@ -138,46 +139,50 @@ public class GUI extends MyFrame implements ActionListener {
 
           }
       }
-     //   String user = userText.getText();
-        // String Password = Passwordtext.getText();
+
+      */
+
+        String user = userText.getText();
+        String Password = Passwordtext.getText();
         String adminUser = adminText.getText();
         String adminPassword = adminPasswordBox.getText();
-       // System.out.println(user + " ," + Password);
+        System.out.println(user + "," + Password);
 
-       /* if (user.equals("Vivaan") && Password.equals("Test")){
-              success.setFont(new Font("Serif", Font.BOLD, 20));
-              success.setForeground(Color.GREEN);
-              success.setText("Login Successful!"); // else statement wrong output//
-
-        }
-else{
+        if (user.equals("Vivaan") && Password.equals("Test")) {
+            success.setFont(new Font("Serif", Font.BOLD, 20));
+            success.setForeground(Color.GREEN);
+            success.setText("Login Successful!"); // else statement wrong output//
+            frame.dispose();
+            new MyFrame();
+        } else {
             success.setFont(new Font("Serif", Font.BOLD, 20));
             success.setForeground(Color.RED);
             success.setText("try again!");
         }
-        */
 
 
         System.out.println(adminUser + ", " + adminPassword);
-        if(adminUser.equals("Adminuser") && adminPassword.equals("Adminpassword")){
+        if (adminUser.equals("Admin") && adminPassword.equals("Admin")) {
             adminSuccess.setFont(new Font("Serif", Font.BOLD, 20));
             adminSuccess.setForeground(Color.GREEN);
             adminSuccess.setText("Login success");
-            MyFrame Welcome = new MyFrame();
             frame.dispose();
             new MyFrame();
 
-        }
-        else{
+        } else {
             adminSuccess.setFont(new Font("Serif", Font.BOLD, 20));
             adminSuccess.setForeground(Color.RED);
             adminSuccess.setText("Try Again!!");
 
         }
+
     }
-
-
 }
+
+
+
+
+
 
 
 
