@@ -2,9 +2,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 
 public class MyFrame extends JFrame implements ActionListener {
+
     JMenuBar MenuBar;
     JMenu Time;
     JMenu Progress;
@@ -12,49 +15,115 @@ public class MyFrame extends JFrame implements ActionListener {
     JMenu Prizes;
     JMenu pastWins;
     JMenu Calender;
-    JMenu Logout;
     JMenu Help;
-    private static JFrame MyFrame;
+    JMenuItem FAQs;
+    JMenuItem Logout;
+    MyFrame() {
+        JFrame Frame = new JFrame();
+        //options//
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(900, 600);
+        this.setLayout(new FlowLayout());
+        MenuBar = new JMenuBar();
 
-        MyFrame(){
-       //options//
-            this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            this.setSize(900,600);
-            this.setLayout(new FlowLayout());
-            MenuBar = new JMenuBar();
-             Time = new JMenu("Add Time"); //sort of like a shopping cart, based on the events attended, attach points.
-             Progress = new JMenu("My Progress"); //includes points//
-             Leaderboard = new JMenu("Leaderboard");
-             Prizes = new JMenu("Prizes");
-             pastWins = new JMenu("Past Winners"); //include random and most points//
-             Calender = new JMenu("Calender"); //basically events rn//
-             Logout = new JMenu("Logout");
-             Help = new JMenu("Help");
+        Time = new JMenu("Add Time"); //sort of like a shopping cart, based on the events attended, attach points.
 
-     //action listeners//
-     Time.addActionListener(this);
-     Progress.addActionListener(this);
-     Leaderboard.addActionListener(this);
-     Prizes.addActionListener(this);
-     pastWins.addActionListener(this);
-     Calender.addActionListener(this);
-     Logout.addActionListener(this);
-    //menubar add//
-           MenuBar.add(Time);
-            MenuBar.add(Progress);
-            MenuBar.add(Leaderboard);
-            MenuBar.add(Prizes);
-            MenuBar.add(pastWins);
-            MenuBar.add(Calender);
-            MenuBar.add(Logout);
-            MenuBar.add(Help);
-            this.setJMenuBar(MenuBar);
-            this.setVisible(true);
-        }
 
-        @Override
-        public void actionPerformed(ActionEvent e) {
+        Progress = new JMenu("My Progress"); //includes points//
 
-        }
+
+        Leaderboard = new JMenu("Leaderboard");
+
+
+        Prizes = new JMenu("Prizes");
+
+
+        pastWins = new JMenu("Past Winners"); //include random and most points//
+
+
+        Calender = new JMenu("Calender"); //basically events rn//
+
+        Help = new JMenu("Help");
+        FAQs = new JMenuItem("FAQ");
+        Logout = new JMenuItem("Logout");
+
+        //action listeners//
+        Time.addActionListener(this);
+
+        Progress.addActionListener(this);
+
+        Leaderboard.addActionListener(this);
+
+        Prizes.addActionListener(this);
+
+        pastWins.addActionListener(this);
+
+        Calender.addActionListener(this);
+
+        Help.addActionListener(this);
+        FAQs.addActionListener(this);
+        Logout.addActionListener(this);
+        //menubar add//
+
+        Help.add(FAQs);
+        Help.add(Logout);
+
+
+
+
+        
+
+        MenuBar.add(Time);
+
+        MenuBar.add(Progress);
+
+        MenuBar.add(Leaderboard);
+
+        MenuBar.add(Prizes);
+
+        MenuBar.add(pastWins);
+
+        MenuBar.add(Calender);
+
+        MenuBar.add(Help);
+
+        this.setJMenuBar(MenuBar);
+        this.setVisible(true);
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == Time) {
+            System.out.println("Hallo");
+        }
+        if (e.getSource() == Progress) {
+            System.out.println("Hallo");
+        }
+        if (e.getSource() == Leaderboard) {
+            System.out.println("Hallo");
+        }
+            if (e.getSource() == Prizes) {
+                System.out.println("Hallo");
+                   }
+                if (e.getSource() == pastWins) {
+                    System.out.println("Hallo");
+                }
+                if (e.getSource() == Calender) {
+                    System.out.println("Hallo");
+                }
+
+                if (e.getSource() == Logout) {
+                    System.exit(0);
+                }
+                if (e.getSource() == FAQs) {
+                    System.out.println("Hallo");
+                }
+
+            }
+    }
+
+
+
+
+          
+      
