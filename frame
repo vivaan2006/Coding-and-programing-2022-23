@@ -10,6 +10,7 @@ public class MyFrame extends JFrame implements ActionListener {
     private JMenu Progress;
     private JMenu Leaderboard;
     private JMenu Prizes;
+    private JMenuItem Prize;
     private JMenu pastWins;
     private JMenuItem PW;
     private JMenuItem tips;
@@ -37,7 +38,7 @@ public class MyFrame extends JFrame implements ActionListener {
 
         Prizes = new JMenu("Prizes");
         Prizes.setPreferredSize(new Dimension(70,Time.getPreferredSize().width));
-
+        Prize = new JMenuItem("Prize Shop");
 
         pastWins = new JMenu("Past Winners"); //include random and most points//
         pastWins.setPreferredSize(new Dimension(90,Time.getPreferredSize().width));
@@ -62,6 +63,7 @@ public class MyFrame extends JFrame implements ActionListener {
         Leaderboard.addActionListener(this);
 
         Prizes.addActionListener(this);
+        Prize.addActionListener(this);
 
         pastWins.addActionListener(this);
         PW.addActionListener(this);
@@ -80,11 +82,13 @@ public class MyFrame extends JFrame implements ActionListener {
 
         Help.add(FAQs);
         Help.add(Logout);
+
         pastWins.add(PW);
         pastWins.add(tips);
 
         Calender.add(Events);
 
+        Prizes.add(Prize);
 
         MenuBar.add(Time);
 
@@ -115,8 +119,8 @@ public class MyFrame extends JFrame implements ActionListener {
         if (e.getSource() == Leaderboard) {      //change to menu item
             System.out.println("Hallo");
         }
-        if (e.getSource() == Prizes) {
-            System.out.println("Hallo");
+        if (e.getSource() == Prize) {
+            System.out.println("Lead to Prize shop");
         }
         if (e.getSource() == PW) {
             System.out.println("Past winners page");
@@ -136,6 +140,11 @@ public class MyFrame extends JFrame implements ActionListener {
 
     }
 }
+
+
+
+
+
 
 
 
