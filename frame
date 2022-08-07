@@ -2,22 +2,22 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
-
-
 public class MyFrame extends JFrame implements ActionListener {
 
+    CalendarProgram calendar;
     private JMenuBar MenuBar;
-   private JMenu Time;
+    private JMenu Time;
     private JMenu Progress;
     private JMenu Leaderboard;
     private JMenu Prizes;
     private JMenu pastWins;
+    private JMenuItem PW;
+    private JMenuItem tips;
     private  JMenu Calender;
     private JMenu Help;
     private JMenuItem FAQs;
     private JMenuItem Logout;
+    private JMenuItem Events;
     MyFrame() {
         JFrame Frame = new JFrame();
         //options//
@@ -27,23 +27,30 @@ public class MyFrame extends JFrame implements ActionListener {
         MenuBar = new JMenuBar();
 
         Time = new JMenu("Add Time"); //sort of like a shopping cart, based on the events attended, attach points.
-
+        Time.setPreferredSize(new Dimension(90,Time.getPreferredSize().width));
 
         Progress = new JMenu("My Progress"); //includes points//
-
+        Progress.setPreferredSize(new Dimension(90,Time.getPreferredSize().width));
 
         Leaderboard = new JMenu("Leaderboard");
-
+        Leaderboard.setPreferredSize(new Dimension(90,Time.getPreferredSize().width));
 
         Prizes = new JMenu("Prizes");
+        Prizes.setPreferredSize(new Dimension(70,Time.getPreferredSize().width));
 
 
         pastWins = new JMenu("Past Winners"); //include random and most points//
+        pastWins.setPreferredSize(new Dimension(90,Time.getPreferredSize().width));
+        PW = new JMenuItem("View Past Winners");
+        tips = new JMenuItem("Tips to Win");
 
+        Calender = new JMenu("Calendar"); //basically events rn//
+        Calender.setPreferredSize(new Dimension(90,Time.getPreferredSize().width));
+        Events = new JMenu("Calendar");
 
-        Calender = new JMenu("Calender"); //basically events rn//
 
         Help = new JMenu("Help");
+        Help.setPreferredSize(new Dimension(90,Time.getPreferredSize().width));
         FAQs = new JMenuItem("FAQ");
         Logout = new JMenuItem("Logout");
 
@@ -57,8 +64,14 @@ public class MyFrame extends JFrame implements ActionListener {
         Prizes.addActionListener(this);
 
         pastWins.addActionListener(this);
+        PW.addActionListener(this);
+        tips.addActionListener(this);
+
 
         Calender.addActionListener(this);
+        Events.addActionListener(this);
+
+
 
         Help.addActionListener(this);
         FAQs.addActionListener(this);
@@ -67,10 +80,10 @@ public class MyFrame extends JFrame implements ActionListener {
 
         Help.add(FAQs);
         Help.add(Logout);
+        pastWins.add(PW);
+        pastWins.add(tips);
 
-
-
-
+        Calender.add(Events);
 
 
         MenuBar.add(Time);
@@ -93,35 +106,42 @@ public class MyFrame extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == Time) {
+        if (e.getSource() == Time) {    //change to menu item
             System.out.println("Hallo");
         }
-        if (e.getSource() == Progress) {
+        if (e.getSource() == Progress) { //change to menu item
             System.out.println("Hallo");
         }
-        if (e.getSource() == Leaderboard) {
+        if (e.getSource() == Leaderboard) {      //change to menu item
             System.out.println("Hallo");
         }
-            if (e.getSource() == Prizes) {
-                System.out.println("Hallo");
-                   }
-                if (e.getSource() == pastWins) {
-                    System.out.println("Hallo");
-                }
-                if (e.getSource() == Calender) {
-                    System.out.println("Hallo");
-                }
+        if (e.getSource() == Prizes) {
+            System.out.println("Hallo");
+        }
+        if (e.getSource() == PW) {
+            System.out.println("Past winners page");
+        }
+        if (e.getSource() == Events) {
+           this.dispose();
+        calendar = new CalendarProgram();
+        }
 
-                if (e.getSource() == Logout) {
-                    this.dispose();
-                    new GUI();
-                }
-                if (e.getSource() == FAQs) {
-                    System.out.println("Hallo");
-                }
+        if (e.getSource() == Logout) {
+            this.dispose();
+            new GUI();
+        }
+        if (e.getSource() == FAQs) {
+            System.out.println("Lead to FAQ page");
+        }
 
-            }
     }
+}
+
+
+
+
+
+
 
 
 
