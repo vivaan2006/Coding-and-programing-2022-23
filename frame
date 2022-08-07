@@ -8,16 +8,16 @@ import java.io.IOException;
 
 public class MyFrame extends JFrame implements ActionListener {
 
-    JMenuBar MenuBar;
-    JMenu Time;
-    JMenu Progress;
-    JMenu Leaderboard;
-    JMenu Prizes;
-    JMenu pastWins;
-    JMenu Calender;
-    JMenu Help;
-    JMenuItem FAQs;
-    JMenuItem Logout;
+    private JMenuBar MenuBar;
+   private JMenu Time;
+    private JMenu Progress;
+    private JMenu Leaderboard;
+    private JMenu Prizes;
+    private JMenu pastWins;
+    private  JMenu Calender;
+    private JMenu Help;
+    private JMenuItem FAQs;
+    private JMenuItem Logout;
     MyFrame() {
         JFrame Frame = new JFrame();
         //options//
@@ -71,7 +71,7 @@ public class MyFrame extends JFrame implements ActionListener {
 
 
 
-        
+
 
         MenuBar.add(Time);
 
@@ -113,7 +113,8 @@ public class MyFrame extends JFrame implements ActionListener {
                 }
 
                 if (e.getSource() == Logout) {
-                    System.exit(0);
+                    this.dispose();
+                    new GUI();
                 }
                 if (e.getSource() == FAQs) {
                     System.out.println("Hallo");
@@ -121,6 +122,10 @@ public class MyFrame extends JFrame implements ActionListener {
 
             }
     }
+
+
+
+
 
 
 
