@@ -17,22 +17,21 @@ public class GUI extends MyFrame implements ActionListener {
     private static JLabel success;
     private static JLabel adminLabel;
     private static JLabel adminuser;
-    static JTextField adminText;
+   private static JTextField adminText;
     private static JLabel adminPassword;
     private static JPasswordField adminPasswordBox;
     private static JButton adminButton;
     private static JLabel adminSuccess;
     private static JFrame frame;
 
-    HashMap<String, String> logininfo = new HashMap<String, String>();
 
     public static void main(String[] args) {
-        GUI gui = new GUI(Id);
+        GUI gui = new GUI();
+
     }
 
-    public GUI(HashMap<String, String> Login) {
+    public GUI() {
 
-        logininfo = Login;
         //  image and background
         frame = new JFrame();
         ImageIcon img = new ImageIcon(this.getClass().getResource("Sunset-900x600.jpg"));
@@ -125,23 +124,6 @@ public class GUI extends MyFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-    /*  if(e.getSource()== button){
-          String userID = userText.getText();
-          String password = String.valueOf(Passwordtext);
-          if(logininfo.containsKey(userID)){
-              if(logininfo.get(userID).equals(password)){
-                  messageLabel.setForeground(Color.GREEN);
-                  messageLabel.setText("Login Successful");
-                  frame.dispose();
-                  new MyFrame();
-
-                  }
-
-          }
-      }
-
-      */
-
         String user = userText.getText();
         String Password = Passwordtext.getText();
         String adminUser = adminText.getText();
@@ -154,13 +136,12 @@ public class GUI extends MyFrame implements ActionListener {
             success.setText("Login Successful!"); // else statement wrong output//
             frame.dispose();
             new MyFrame();
-        } else {
+        }
+        else {
             success.setFont(new Font("Serif", Font.BOLD, 20));
             success.setForeground(Color.RED);
             success.setText("try again!");
         }
-
-
         System.out.println(adminUser + ", " + adminPassword);
         if (adminUser.equals("Admin") && adminPassword.equals("Admin")) {
             adminSuccess.setFont(new Font("Serif", Font.BOLD, 20));
@@ -178,6 +159,8 @@ public class GUI extends MyFrame implements ActionListener {
 
     }
 }
+
+
 
 
 
