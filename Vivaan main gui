@@ -3,9 +3,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Calendar;
+import java.util.HashMap;
 
 public class GUI extends MyFrame implements ActionListener {
+    static IdPassword Id = new IdPassword();
 
     JLabel messageLabel = new JLabel();
     private static JLabel userLabel;
@@ -16,7 +17,7 @@ public class GUI extends MyFrame implements ActionListener {
     private static JLabel success;
     private static JLabel adminLabel;
     private static JLabel adminuser;
-    private static JTextField adminText;
+   private static JTextField adminText;
     private static JLabel adminPassword;
     private static JPasswordField adminPasswordBox;
     private static JButton adminButton;
@@ -33,7 +34,7 @@ public class GUI extends MyFrame implements ActionListener {
 
         //  image and background
         frame = new JFrame();
-        ImageIcon img = new ImageIcon(this.getClass().getResource("Sunset-900x600.jpeg"));
+        ImageIcon img = new ImageIcon(this.getClass().getResource("Sunset-900x600.jpg"));
         JLabel background = new JLabel(img);
         background.setSize(900, 600);
 
@@ -158,6 +159,8 @@ public class GUI extends MyFrame implements ActionListener {
 
     }
 }
+
+
 
 
 
