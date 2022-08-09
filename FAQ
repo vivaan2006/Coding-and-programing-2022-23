@@ -1,0 +1,20 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class FAQ {
+        JFrame Screen = new JFrame();
+        JLabel WelcomeLabel = new JLabel("FAQ page");
+
+        FAQ() {
+            WelcomeLabel.setBounds(100, 40, 200, 200);
+            WelcomeLabel.setFont(new Font(null, Font.PLAIN, 35));
+            Screen.add(WelcomeLabel);
+            Screen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            Screen.setSize(900, 600);
+            Screen.setLayout(null);
+            Screen.setVisible(true);
+        }
+    }
+
+
+
