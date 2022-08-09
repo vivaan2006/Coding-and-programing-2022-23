@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 public class MyFrame extends JFrame implements ActionListener {
 
     CalendarProgram calendar;
-    private JMenuBar MenuBar;
+    JMenuBar MenuBar;
     private JMenu Time;
     private JMenu Progress;
     private JMenu Leaderboard;
@@ -19,37 +19,54 @@ public class MyFrame extends JFrame implements ActionListener {
     private JMenuItem FAQs;
     private JMenuItem Logout;
     private JMenuItem Events;
+    private JMenuItem standings;
+    private JMenuItem profile;
+    private JMenuItem addTime;
+    private JFrame Frame;
     MyFrame() {
-        JFrame Frame = new JFrame();
+         Frame = new JFrame();
         //options//
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(900, 600);
         this.setLayout(new FlowLayout());
         MenuBar = new JMenuBar();
-
+//add time
         Time = new JMenu("Add Time"); //sort of like a shopping cart, based on the events attended, attach points.
         Time.setPreferredSize(new Dimension(90,Time.getPreferredSize().width));
-
+        addTime = new JMenuItem("Add Events");
+        addTime.addActionListener(this);
+        Time.add(addTime);
+//progress
         Progress = new JMenu("My Progress"); //includes points//
         Progress.setPreferredSize(new Dimension(90,Time.getPreferredSize().width));
-
+        profile  = new JMenuItem("View Profile");
+        profile.addActionListener(this);
+        Progress.add(profile);
+        MenuBar.add(Progress);
+//leaderboard
         Leaderboard = new JMenu("Leaderboard");
         Leaderboard.setPreferredSize(new Dimension(90,Time.getPreferredSize().width));
+        standings = new JMenuItem("View Current Standings");
+        standings.addActionListener(this);
+        Leaderboard.add(standings);
+        MenuBar.add(Leaderboard);
 
+
+//prizes
         Prizes = new JMenu("Prizes");
         Prizes.setPreferredSize(new Dimension(70,Time.getPreferredSize().width));
         Prize = new JMenuItem("Prize Shop");
-
+//past winners
         pastWins = new JMenu("Past Winners"); //include random and most points//
         pastWins.setPreferredSize(new Dimension(90,Time.getPreferredSize().width));
         PW = new JMenuItem("View Past Winners");
         tips = new JMenuItem("Tips to Win");
-
+//calendar
         Calender = new JMenu("Calendar"); //basically events rn//
         Calender.setPreferredSize(new Dimension(90,Time.getPreferredSize().width));
         Events = new JMenu("Calendar");
 
-
+//help
         Help = new JMenu("Help");
         Help.setPreferredSize(new Dimension(90,Time.getPreferredSize().width));
         FAQs = new JMenuItem("FAQ");
@@ -69,11 +86,8 @@ public class MyFrame extends JFrame implements ActionListener {
         PW.addActionListener(this);
         tips.addActionListener(this);
 
-
         Calender.addActionListener(this);
         Events.addActionListener(this);
-
-
 
         Help.addActionListener(this);
         FAQs.addActionListener(this);
@@ -120,14 +134,15 @@ public class MyFrame extends JFrame implements ActionListener {
             System.out.println("Hallo");
         }
         if (e.getSource() == Prize) {
-            System.out.println("Lead to Prize shop");
+            Frame.dispose();
+            new PrizeShop();
         }
         if (e.getSource() == PW) {
-            System.out.println("Past winners page");
+            Frame.dispose();
+            new PastWinners();
         }
         if (e.getSource() == Events) {
-           this.dispose();
-        calendar = new CalendarProgram();
+         System.out.println("events page");
         }
 
         if (e.getSource() == Logout) {
@@ -140,12 +155,6 @@ public class MyFrame extends JFrame implements ActionListener {
 
     }
 }
-
-
-
-
-
-
 
 
 
