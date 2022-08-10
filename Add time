@@ -1,18 +1,79 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Time  {
+public class Time implements ActionListener {
+    //J stuff//
+    
     JFrame Screen = new JFrame();
-    JLabel WelcomeLabel = new JLabel("Add Time");
+    JLabel AddTime = new JLabel("Add Time");
+    JLabel EventLabel = new JLabel("Choose Event");
+    
+    private static JTextField Describe;
+    JLabel Experience = new JLabel("Describe your experience");
+    
+    private static JButton Redirect;
+    private static JButton Home;
+
     Time() {
-        WelcomeLabel.setBounds(100,40,200,200);
-        WelcomeLabel.setFont(new Font(null, Font.PLAIN,35));
-        Screen.add(WelcomeLabel);
+        //Background color and add time JLabel//
+        AddTime.setBounds(300, 0, 500, 100);
+        AddTime.setFont(new Font(null, Font.PLAIN, 50));
+        Screen.add(AddTime);
         Screen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Screen.setSize(900, 600);
+        Screen.getContentPane().setBackground(Color.GREEN);
         Screen.setLayout(null);
-        Screen.setVisible(true);
+        
+        //Event JLabel//
+        
+        EventLabel.setBounds(50, 50, 600, 200);
+        EventLabel.setFont(new Font(null, Font.PLAIN, 40));
+        Screen.add(EventLabel);
+        
+        //Text box//
+        
+        Describe = new JTextField(20);
+        Describe.setBounds(400, 210, 450, 200);
+        Screen.add(Describe);
+        
+        //describe label//
+  
+        Experience.setBounds(400, 50, 600, 200);
+        Experience.setFont(new Font(null, Font.PLAIN, 40));
+        Screen.add(Experience);
+        
+        //Combobox//
+        
+        String[] event = {"", " Football game", "Soccer Game", "Animal Shelter volunteer"};
+        JComboBox Activities = new JComboBox(event);
+        Activities.setBounds(75, 210, 200, 50);
+        Screen.add(Activities);
+        
+        //redirect to home//
+        
+        Redirect = new JButton("Send For Approval");
+        Redirect.setBounds(220, 470, 400, 50); //add action listened below//
+        Redirect.setFont(new Font(null, Font.PLAIN, 30));
+        Screen.add(Redirect);
+        
+        // Home button//
+        
+        Home = new JButton("Go Home");
+        Home.setBounds(0, 0, 150, 40); //add action listened below//
+        Home.addActionListener(this);
+        Home.setFont(new Font(null, Font.PLAIN, 20));
+        Screen.add(Home);
 
+        Screen.setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e){
+            if (e.getSource() == Home) {
+            Screen.dispose();
+            new MyFrame();
+        }
     }
 }
