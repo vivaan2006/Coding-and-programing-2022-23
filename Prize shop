@@ -1,18 +1,54 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class PrizeShop extends MyFrame implements ActionListener {
-       JFrame Screen = new JFrame();
-       JLabel WelcomeLabel = new JLabel("Prize shop");
-    PrizeShop() {
-        WelcomeLabel.setBounds(100,40,200,200);
-        WelcomeLabel.setFont(new Font(null, Font.PLAIN,35));
-        Screen.add(WelcomeLabel);
-        Screen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Screen.setSize(900, 600);
-        Screen.setLayout(null);
-        Screen.setVisible(true);
+public class PrizeShop extends JFrame implements ActionListener{
+       JFrame PrizeScreen = new JFrame();
+       JLabel Prize2 = new JLabel("Prize shop");
+       static JButton Home2;
+       private ImageIcon image1;
+       private ImageIcon image2;
+       private JLabel hoodie;
+       private JLabel pass;
 
+    PrizeShop() {
+        Prize2.setBounds(300, 0, 500, 100);
+        Prize2.setFont(new Font(null, Font.PLAIN, 35));
+        PrizeScreen.add(Prize2);
+        Prize2.setFont(new Font("Segoe Print", Font.PLAIN, 50));
+        PrizeScreen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        PrizeScreen.setSize(900, 1000);
+        PrizeScreen.getContentPane().setBackground(Color.LIGHT_GRAY);
+        PrizeScreen.setLayout(null);
+        //home button
+        Home2 = new JButton("Go Home");
+        Home2.setBounds(0, 0, 150, 40);
+        Home2.addActionListener(this);
+        Home2.setFont(new Font("Segoe Print", Font.PLAIN, 20));
+        PrizeScreen.add(Home2);
+//hoodie image
+         image1 = new ImageIcon(this.getClass().getResource("hoodie.jpg"));
+         hoodie = new JLabel(image1);
+         hoodie.setSize(100,100);
+         hoodie.setBounds(50,100,200,200);
+         PrizeScreen.add(hoodie);
+//hw pass
+        image2 = new ImageIcon(this.getClass().getResource("hwpass.png"));
+        pass = new JLabel(image2);
+        pass.setSize(100,100);
+        pass.setBounds(340,100,530,250);
+        PrizeScreen.add(pass);
+
+        PrizeScreen.setVisible(true);
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent actionEvent) {
+        if(actionEvent.getSource()==Home2){
+            PrizeScreen.dispose();
+            new MyFrame();
+        }
     }
 }
