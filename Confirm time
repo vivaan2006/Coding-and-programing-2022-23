@@ -1,0 +1,21 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class Confirmation {
+    JFrame Confirm = new JFrame();
+    JLabel Congrats = new JLabel("Thank you! Your Submission will be Processed");
+
+    Confirmation() {
+        Congrats.setBounds(25,40,900,100);
+        Congrats.setFont(new Font(null, Font.PLAIN, 35));
+        Confirm.add(Congrats);
+        Confirm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Confirm.setSize(900, 600);
+        Confirm.getContentPane().setBackground(Color.LIGHT_GRAY);
+        Confirm.setLayout(null);
+        Confirm.add(Time.Home);
+        Confirm.setVisible(true);
+
+
+    }
+}
