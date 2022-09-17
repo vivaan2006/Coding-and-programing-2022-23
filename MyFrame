@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 public class MyFrame extends JFrame implements ActionListener {
 
-    CalendarProgram calendar;
+    Calendar calendar;
     JMenuBar MenuBar;
     private JMenu Time;
     private JMenu Progress;
@@ -14,7 +14,7 @@ public class MyFrame extends JFrame implements ActionListener {
     private JMenu pastWins;
     private JMenuItem PW;
     private JMenuItem tips;
-    private  JMenu Calender;
+    private JMenu Calender;
     private JMenu Help;
     private JMenuItem FAQs;
     private JMenuItem Logout;
@@ -23,29 +23,38 @@ public class MyFrame extends JFrame implements ActionListener {
     private JMenuItem profile;
     private JMenuItem addTime;
     private JFrame Frame;
+    private JFrame otherFrame;
+
     MyFrame() {
-         Frame = new JFrame();
+        Frame = new JFrame();
         //options//
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(900, 600);
         this.setLayout(new FlowLayout());
+
+        otherFrame = new JFrame();
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(900,600);
+        this.setLayout(new FlowLayout());
+     //   otherFrame.add();
+
         MenuBar = new JMenuBar();
-//add time
+        // next things
         Time = new JMenu("Add Time"); //sort of like a shopping cart, based on the events attended, attach points.
-        Time.setPreferredSize(new Dimension(90,Time.getPreferredSize().width));
+        Time.setPreferredSize(new Dimension(90, Time.getPreferredSize().width));
         addTime = new JMenuItem("Add Events");
         addTime.addActionListener(this);
         Time.add(addTime);
 //progress
         Progress = new JMenu("My Progress"); //includes points//
-        Progress.setPreferredSize(new Dimension(90,Time.getPreferredSize().width));
-        profile  = new JMenuItem("View Profile");
+        Progress.setPreferredSize(new Dimension(90, Time.getPreferredSize().width));
+        profile = new JMenuItem("View Profile");
         profile.addActionListener(this);
         Progress.add(profile);
         MenuBar.add(Progress);
 //leaderboard
         Leaderboard = new JMenu("Leaderboard");
-        Leaderboard.setPreferredSize(new Dimension(90,Time.getPreferredSize().width));
+        Leaderboard.setPreferredSize(new Dimension(90, Time.getPreferredSize().width));
         standings = new JMenuItem("View Current Standings");
         standings.addActionListener(this);
         Leaderboard.add(standings);
@@ -54,21 +63,21 @@ public class MyFrame extends JFrame implements ActionListener {
 
 //prizes
         Prizes = new JMenu("Prizes");
-        Prizes.setPreferredSize(new Dimension(70,Time.getPreferredSize().width));
+        Prizes.setPreferredSize(new Dimension(70, Time.getPreferredSize().width));
         Prize = new JMenuItem("Prize Shop");
 //past winners
         pastWins = new JMenu("Past Winners"); //include random and most points//
-        pastWins.setPreferredSize(new Dimension(90,Time.getPreferredSize().width));
+        pastWins.setPreferredSize(new Dimension(90, Time.getPreferredSize().width));
         PW = new JMenuItem("View Past Winners");
         tips = new JMenuItem("Tips to Win");
 //calendar
         Calender = new JMenu("Calendar"); //basically events rn//
-        Calender.setPreferredSize(new Dimension(90,Time.getPreferredSize().width));
+        Calender.setPreferredSize(new Dimension(90, Time.getPreferredSize().width));
         Events = new JMenuItem("Calendar");
 
 //help
         Help = new JMenu("Help");
-        Help.setPreferredSize(new Dimension(90,Time.getPreferredSize().width));
+        Help.setPreferredSize(new Dimension(90, Time.getPreferredSize().width));
         FAQs = new JMenuItem("FAQ");
         Logout = new JMenuItem("Logout");
 
@@ -121,7 +130,6 @@ public class MyFrame extends JFrame implements ActionListener {
         this.setJMenuBar(MenuBar);
         this.setVisible(true);
     }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == addTime) {
@@ -144,14 +152,14 @@ public class MyFrame extends JFrame implements ActionListener {
             Frame.dispose();
             new PastWinners();
         }
-        if(e.getSource()==tips){
+        if (e.getSource() == tips) {
             Frame.dispose();
             new Tips();
         }
-       //this is the calendar//
+        //this is the calendar//
         if (e.getSource() == Events) {
-         Frame.dispose();
-         new CalendarProgram();
+            Frame.dispose();
+            new Calendar();
         }
 
         if (e.getSource() == Logout) {
@@ -162,20 +170,9 @@ public class MyFrame extends JFrame implements ActionListener {
             Frame.dispose();
             new FAQ();
         }
-
     }
 }
 
 
 
 
-
-
-
-
-
-
-
-
-          
-      
