@@ -2,168 +2,184 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-
 public class MyFrame extends JFrame implements ActionListener {
-
-    private ImageIcon backgroundImage;
-    private JLabel background;
-
-    private JFrame frame;
 
     private JMenuBar menuBar;
     private JMenu time;
     private JMenu progress;
-    private JMenu leaderboard;
+    private JMenu leaderBoard;
     private JMenu prizes;
+    private JMenuItem prize;
     private JMenu pastWins;
-    private JMenu calendar;
+    private JMenuItem PW;
+    private JMenuItem tips;
+    private  JMenu calendar;
     private JMenu help;
-
-    private JMenuItem addTime;
     private JMenuItem faqs;
     private JMenuItem logout;
-    private JMenuItem prize;
-    private JMenuItem pastWinners;
-    private JMenuItem tips;
-    private JMenuItem calendarEvent;
+    private JMenuItem events;
     private JMenuItem standings;
     private JMenuItem profile;
+    private JMenuItem addTime;
+    private JFrame frame;
+
+    public static void main(String[] args) {
+        MyFrame myFrame = new MyFrame();
+    }
 
     public MyFrame() {
 
-        // Background Image
-        backgroundImage = new ImageIcon(this.getClass().getResource("images/entrybackground.jpg"));
-        background = new JLabel(backgroundImage);
-        background.setBounds(0, 0, 900, 600);
-        background.setSize(900, 600);
-
-        // Menubar
         menuBar = new JMenuBar();
-        menuBar.setBounds(50, 50, 200, 100);
-        menuBar.setSize(200, 100);
-
-        // Add time
-        time = new JMenu("  Add Time ");//sort of like a shopping cart, based on the events attended, attach points.
-        time.addActionListener(this);
+//add time
+        time = new JMenu("Add Time"); //sort of like a shopping cart, based on the events attended, attach points.
+        time.setPreferredSize(new Dimension(80,30));
         addTime = new JMenuItem("Add Events");
         addTime.addActionListener(this);
         time.add(addTime);
-        time.setPreferredSize(new Dimension(80,35));
-
-        menuBar.add(time);
-
-        // Progress
+//progress
         progress = new JMenu("My Progress"); //includes points//
-        progress.addActionListener(this);
+        progress.setPreferredSize(new Dimension(80,30));
         profile  = new JMenuItem("View Profile");
         profile.addActionListener(this);
         progress.add(profile);
         menuBar.add(progress);
-        progress.setPreferredSize(new Dimension(85,35));
-
-
-        // Leaderboard
-        leaderboard = new JMenu(" Leaderboard");
-        leaderboard.addActionListener(this);
+//leaderboard
+        leaderBoard = new JMenu("Leaderboard");
+        leaderBoard.setPreferredSize(new Dimension(80,30));
         standings = new JMenuItem("View Current Standings");
         standings.addActionListener(this);
-        leaderboard.add(standings);
-        menuBar.add(leaderboard);
-        leaderboard.setPreferredSize(new Dimension(85,35));
+        leaderBoard.add(standings);
+        menuBar.add(leaderBoard);
 
 
-        // Prizes
-        prizes = new JMenu("      Prizes");
-        prizes.addActionListener(this);
-        prize = new JMenuItem("Prize shop");
-        prize.addActionListener(this);
-        prizes.add(prize);
-        menuBar.add(prizes);
-        prizes.setPreferredSize(new Dimension(80,35));
-
-
-        // Past winners
+//prizes
+        prizes = new JMenu("Prizes");
+        prizes.setPreferredSize(new Dimension(80,30));
+        prize = new JMenuItem("Prize Shop");
+//past winners
         pastWins = new JMenu("Past Winners"); //include random and most points//
-        pastWins.addActionListener(this);
-        pastWinners = new JMenuItem("View Past Winners");
-        pastWinners.addActionListener(this);
+        pastWins.setPreferredSize(new Dimension(80,30));
+        PW = new JMenuItem("View Past Winners");
         tips = new JMenuItem("Tips to Win");
-        tips.addActionListener(this);
-        pastWins.add(pastWinners);
-        pastWins.add(tips);
-        menuBar.add(pastWins);
-        pastWins.setPreferredSize(new Dimension(85,35));
+//calendar
+        calendar = new JMenu("Calendar"); //basically events rn//
+        calendar.setPreferredSize(new Dimension(80,30));
+        events = new JMenuItem("Calendar");
 
-
-        // Calendar
-        calendar = new JMenu(" Calender "); //basically events rn//
-        calendar.addActionListener(this);
-        calendarEvent = new JMenuItem("Calendar");
-        calendarEvent.addActionListener(this);
-        calendar.add(calendarEvent);
-        menuBar.add(calendar);
-        calendar.setPreferredSize(new Dimension(80,35));
-
-
-        // Help Menu
+//help
         help = new JMenu("Help");
-        help.addActionListener(this);
+        help.setPreferredSize(new Dimension(80,30));
         faqs = new JMenuItem("FAQ");
-        faqs.addActionListener(this);
         logout = new JMenuItem("Logout");
+
+        //action listeners//
+        time.addActionListener(this);
+
+        progress.addActionListener(this);
+
+        leaderBoard.addActionListener(this);
+
+        prizes.addActionListener(this);
+        prize.addActionListener(this);
+
+        pastWins.addActionListener(this);
+        PW.addActionListener(this);
+        tips.addActionListener(this);
+
+        calendar.addActionListener(this);
+        events.addActionListener(this);
+
+        help.addActionListener(this);
+        faqs.addActionListener(this);
         logout.addActionListener(this);
+        //menubar add//
+
         help.add(faqs);
         help.add(logout);
+
+        pastWins.add(PW);
+        pastWins.add(tips);
+
+        calendar.add(events);
+
+        prizes.add(prize);
+
+        menuBar.add(time);
+
+        menuBar.add(progress);
+
+        menuBar.add(leaderBoard);
+
+        menuBar.add(prizes);
+
+        menuBar.add(pastWins);
+
+        menuBar.add(calendar);
+
         menuBar.add(help);
-        help.setPreferredSize(new Dimension(80,35));
 
-
-        // JFrame
-        frame = new JFrame("Main page");
-        frame.setSize(900, 600);
-        frame.add(background);
-        frame.setJMenuBar(menuBar);
-        frame.setLayout(null);
-        frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        frame = new JFrame();
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(900, 600);
+        this.setLayout(new FlowLayout());
+        this.setJMenuBar(menuBar);
+        this.setVisible(true);
     }
+
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == addTime) {
             frame.dispose();
-            LoginScreen loginScreen = new LoginScreen();
+            Time time = new Time();
+
         }
-        if (e.getSource() == progress) {
-            System.out.println("Hallo");
+        if (e.getSource() == profile) {
+            frame.dispose();
+
         }
-        if (e.getSource() == leaderboard) {
-            System.out.println("Hallo");
+        if (e.getSource() == standings) {
+            frame.dispose();
         }
-        if (e.getSource() == prizes) {
-            System.out.println("Hallo");
+        if (e.getSource() == prize) {
+            frame.dispose();
+
         }
-        if (e.getSource() == pastWins) {
-            System.out.println("Hallo");
+        if (e.getSource() == PW) {
+            frame.dispose();
+
         }
-        if (e.getSource() == calendar) {
-            System.out.println("Hallo");
+        if(e.getSource() == tips){
+            frame.dispose();
+
+        }
+        //this is the calendar//
+        if (e.getSource() == events) {
+            frame.dispose();
         }
 
         if (e.getSource() == logout) {
             frame.dispose();
-            LoginScreen loginScreen = new LoginScreen();
         }
         if (e.getSource() == faqs) {
-            System.out.println("Hallo");
-        }
-    }
+            frame.dispose();
 
+        }
+
+    }
 }
 
 
 
 
 
+
+
+
+
+
+
+
+          
+      

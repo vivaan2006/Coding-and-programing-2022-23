@@ -1,5 +1,3 @@
-import com.mysql.cj.log.Log;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -18,6 +16,7 @@ public class LoginScreen implements ActionListener {
     private JTextField userIDField;
     private JPasswordField passwordField;
     private JButton studentLoginButton;
+    private JButton studentForgotPassword;
     private JLabel messageLabel;
 
     private JLabel adminUserID;
@@ -61,7 +60,7 @@ public class LoginScreen implements ActionListener {
         background.add(studentCenterTitle);
 
         // Student UserID text
-        userID = new JLabel("Student ID");
+        userID = new JLabel("User Name");
         userID.setBounds(60, 200, 100, 50);
         userID.setFont(new Font("Segoe Print", Font.BOLD, 16));
         background.add(userID);
@@ -90,6 +89,14 @@ public class LoginScreen implements ActionListener {
         studentLoginButton.setBackground(new java.awt.Color(0, 180, 0));
         studentLoginButton.setOpaque(true);
         background.add(studentLoginButton);
+
+        studentForgotPassword = new JButton("Change Password");
+        studentForgotPassword.addActionListener(this);
+        studentForgotPassword.setBounds(60, 400, 225, 33);
+        studentForgotPassword.setFocusable(false);
+        studentForgotPassword.setBackground(Color.RED);
+        studentForgotPassword.setOpaque(true);
+        background.add(studentForgotPassword);
 
         // Main Admin Login Title
         adminCenterTitle = new JLabel("Admin Login");
@@ -129,11 +136,9 @@ public class LoginScreen implements ActionListener {
         adminLoginButton.setOpaque(true);
         background.add(adminLoginButton);
 
-
-
         // Message Label
         messageLabel = new JLabel();
-        messageLabel.setBounds(140, 500, 200, 50);
+        messageLabel.setBounds(140, 500, 400, 50);
         messageLabel.setFont(new Font("Segoe Print", Font.BOLD, 20));
         background.add(messageLabel);
 
@@ -153,50 +158,71 @@ public class LoginScreen implements ActionListener {
         LoginScreen loginScreen = new LoginScreen();
     }
 
-
-
-
     @Override
     public void actionPerformed(ActionEvent e) {
-        String studentUserID = userIDField.getText();
-        String studentPassword = String.valueOf(passwordField.getPassword());
+        if(e.getSource() == studentLoginButton) {
+            String studentUserID = userIDField.getText();
+            String studentPassword = String.valueOf(passwordField.getPassword());
 
-        try {
-            Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/loginstudent", "root", "Ramki@7717");
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from login_info");
 
-            while(resultSet.next()) {
-                if(resultSet.getString("student_id").equals(studentUserID) && resultSet.getString("password").equals(studentPassword)) {
-                    messageLabel.setForeground(Color.GREEN);
-                    messageLabel.setText("Login Successful");
-                    frame.dispose();
-                    MyFrame frame = new MyFrame();
+            try {
+                Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/loginstudent", "root", "Ramki@7717");
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery("select * from login_info_student");
+
+
+
+                while(resultSet.next()) {
+                    if(resultSet.getString("userName").equals(studentUserID) && resultSet.getString("password").equals(studentPassword)) {
+                        messageLabel.setForeground(Color.GREEN);
+                        messageLabel.setText("Login Successful");
+                        frame.dispose();
+                        MainFrame frame = new MainFrame(resultSet.getString("name"));
+                    }
+                    else {
+                        messageLabel.setForeground(Color.RED);
+                        messageLabel.setText("Wrong Username or Password");
+                    }
                 }
+
+            } catch(SQLException sqlException) {
+                sqlException.printStackTrace();
             }
 
-        } catch(SQLException sqlException) {
-            sqlException.printStackTrace();
         }
 
-        String adminUserID = adminIDField.getText();
-        String adminPassword = String.valueOf(adminPasswordField.getPassword());
+        if(e.getSource() == adminLoginButton) {
+            String adminUserID = adminIDField.getText();
+            String adminPassword = String.valueOf(adminPasswordField.getPassword());
 
-        try {
-            Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/loginstudent", "root", "Ramki@7717");
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from login_info_admin");
+            try {
+                Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/loginstudent", "root", "Ramki@7717");
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery("select * from login_info_admin");
 
-            while(resultSet.next()) {
-                if(resultSet.getString("admin_id").equals(adminUserID) && resultSet.getString("password").equals(adminPassword)) {
-                    messageLabel.setForeground(Color.GREEN);
-                    messageLabel.setText("Login Successful");
-                    frame.dispose();
-                    MyFrame frame = new MyFrame();
+                while(resultSet.next()) {
+                    if(resultSet.getString("admin_id").equals(adminUserID) && resultSet.getString("password").equals(adminPassword)) {
+                        messageLabel.setForeground(Color.GREEN);
+                        messageLabel.setText("Login Successful");
+                        frame.dispose();
+                        MyFrame frame = new MyFrame();
+                    }
+                    else {
+                        messageLabel.setForeground(Color.RED);
+                        messageLabel.setText("Wrong Username or password");
+                    }
                 }
+            } catch(SQLException sqlException) {
+                sqlException.printStackTrace();
             }
-        } catch(SQLException sqlException) {
-            sqlException.printStackTrace();
+
+        }
+
+        if(e.getSource() == studentForgotPassword) {
+            frame.dispose();
+            ChangePasswordStudent changePasswordStudent = new ChangePasswordStudent();
+
+
         }
 
     }
