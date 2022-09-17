@@ -9,16 +9,20 @@ public class PrizeShop extends JFrame implements ActionListener{
        static JButton Home2;
        private ImageIcon image1;
        private ImageIcon image2;
+       private ImageIcon image3;
        private JLabel hoodie;
        private JLabel pass;
-
+       private JLabel food;
+       private JButton hoodieButton;
+       private JButton passButton;
+       private JButton foodButton;
     PrizeShop() {
         Prize2.setBounds(300, 0, 500, 100);
         Prize2.setFont(new Font(null, Font.PLAIN, 35));
         PrizeScreen.add(Prize2);
         Prize2.setFont(new Font("Segoe Print", Font.PLAIN, 50));
         PrizeScreen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        PrizeScreen.setSize(900, 1000);
+        PrizeScreen.setSize(1100, 800);
         PrizeScreen.getContentPane().setBackground(Color.LIGHT_GRAY);
         PrizeScreen.setLayout(null);
         //home button
@@ -27,6 +31,24 @@ public class PrizeShop extends JFrame implements ActionListener{
         Home2.addActionListener(this);
         Home2.setFont(new Font("Segoe Print", Font.PLAIN, 20));
         PrizeScreen.add(Home2);
+        // hoodie button
+        hoodieButton = new JButton("Hillcrest Hoodie");
+        hoodieButton.setBounds(50, 300, 200, 50);
+        hoodieButton.addActionListener(this);
+        hoodieButton.setFont(new Font("Comfortaa", Font.PLAIN, 15));
+        PrizeScreen.add(hoodieButton);
+        // hw pass button
+        passButton = new JButton("Homework Pass");
+        passButton.setBounds(400, 350, 530, 50);
+        passButton.addActionListener(this);
+        passButton.setFont(new Font("Comfortaa", Font.PLAIN, 15));
+        PrizeScreen.add(passButton);
+        // food button
+        foodButton = new JButton("Free lunch");
+        foodButton.setBounds(50, 540, 200, 50);
+        foodButton.addActionListener(this);
+        foodButton.setFont(new Font("Comfortaa", Font.PLAIN, 15));
+        PrizeScreen.add(foodButton);
 //hoodie image
          image1 = new ImageIcon(this.getClass().getResource("hoodie.jpg"));
          hoodie = new JLabel(image1);
@@ -37,9 +59,14 @@ public class PrizeShop extends JFrame implements ActionListener{
         image2 = new ImageIcon(this.getClass().getResource("hwpass.png"));
         pass = new JLabel(image2);
         pass.setSize(100,100);
-        pass.setBounds(340,100,530,250);
+        pass.setBounds(400 ,100,530,250);
         PrizeScreen.add(pass);
-
+//food prize
+        image3 = new ImageIcon(this.getClass().getResource("food.jpeg"));
+        food = new JLabel(image3);
+        food.setSize(100,100);
+        food.setBounds(50,400,200,200);
+        PrizeScreen.add(food);
         PrizeScreen.setVisible(true);
 
     }
