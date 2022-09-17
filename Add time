@@ -1,4 +1,3 @@
-import com.sun.deploy.panel.JSmartTextArea;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,7 +18,7 @@ public class Time implements ActionListener {
     Time() {
         //Background color and add time JLabel//
         AddTime.setBounds(300, 0, 500, 100);
-        AddTime.setFont(new Font("Segoe Print", Font.PLAIN, 50));
+        AddTime.setFont(new Font("Comfortaa", Font.PLAIN, 50));
         Screen.add(AddTime);
         Screen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Screen.setSize(900, 600);
@@ -28,39 +27,39 @@ public class Time implements ActionListener {
 
         //Event JLabel//
         EventLabel.setBounds(50, 50, 600, 200);
-        EventLabel.setFont(new Font("Segoe Print", Font.PLAIN, 35));
+        EventLabel.setFont(new Font("Comfortaa", Font.PLAIN, 35));
         Screen.add(EventLabel);
 
         //Text box//
         Describe = new JTextArea();
         Describe.setBounds(400, 210, 450, 200);
-        Describe.setFont(new Font("Segoe Print", Font.PLAIN, 15));
+        Describe.setFont(new Font("Comfortaa", Font.PLAIN, 15));
         Screen.add(Describe);
 
         //describe label//
         Experience.setBounds(400, 50, 600, 200);
-        Experience.setFont(new Font("Segoe Print", Font.PLAIN, 35));
+        Experience.setFont(new Font("Comfortaa", Font.PLAIN, 35));
         Screen.add(Experience);
 
         //Combobox//
         String[] event = {"", " Football game", "Soccer Game", "Animal Shelter volunteer"};
         JComboBox Activities = new JComboBox(event);
         Activities.setBounds(75, 210, 200, 50);
-        Describe.setFont(new Font("Segoe Print", Font.PLAIN, 15));
+        Describe.setFont(new Font("Comfortaa", Font.PLAIN, 15));
         Screen.add(Activities);
 
         //redirect to home//
         Redirect = new JButton("Send For Approval");
         Redirect.setBounds(220, 470, 400, 50); //add action listened below//
         Redirect.addActionListener(this);
-        Redirect.setFont(new Font("Segoe Print", Font.PLAIN, 30));
+        Redirect.setFont(new Font("Comfortaa", Font.PLAIN, 30));
         Screen.add(Redirect);
 
         // Home button//
         Home = new JButton("Go Home");
         Home.setBounds(0, 0, 150, 40); //add action listened below//
         Home.addActionListener(this);
-        Home.setFont(new Font("Segoe Print", Font.PLAIN, 20));
+        Home.setFont(new Font("Comfortaa", Font.PLAIN, 20));
         Screen.add(Home);
 
           try {
