@@ -186,6 +186,7 @@ public class CreateAccount implements ActionListener {
                 try {
                     Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/loginstudent", "root", "Ramki@7717");
                     Statement statement = connection.createStatement();
+
                     statement.executeUpdate("insert into login_info_student (userName, name, phone, password, email, securityQuestion, answer) values('"+userName+"', '"+name+"', '"+phone+"', '"+password+"', '"+email+"', '"+securityQuestion+"', '"+answer+"')");
                     JOptionPane.showMessageDialog(null, "Thanks for registration");
                     frame.dispose();

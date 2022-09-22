@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,20 +12,15 @@ public class MainFrame implements ActionListener {
     private JLabel dashboard;
 
     // Tabbed pane
-    private JTabbedPane tabbedPane;
-
-    // Panels
-    private JPanel homePanel;
-    private JPanel calendarPanel;
-
 
     public MainFrame(String name) {
 
         buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(1, 1));
         buttonPanel.setBackground(new Color(0, 120,74));
-        buttonPanel.setBounds(0, 0, 1000, 125);
-        buttonPanel.setSize(1000, 125);
+        buttonPanel.setBounds(0, 0, 1000, 600);
+        buttonPanel.setSize(1000, 600);
+        buttonPanel.setBorder(new EmptyBorder(15, 15, 10, 10));
 
         frame = new JFrame("Main Screen");
         frame.add(buttonPanel);
@@ -34,11 +30,26 @@ public class MainFrame implements ActionListener {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-        tabbedPane = new JTabbedPane();
+        var tabbedPane = new JTabbedPane();
+        tabbedPane.setFont(new Font("Calibri", Font.PLAIN, 16));
+        tabbedPane.addTab("<html><body leftmargin=15 topmargin=8 marginwidth=15 marginheight=5 style='font-family:roboto;color:white'>Dashboard</body></html>", new HomePanel());
+        tabbedPane.addTab("<html><body leftmargin=15 topmargin=8 marginwidth=15 marginheight=5 style='font-family:roboto;color:white'>Calendar</body></html>", new CalendarPanel());
+        tabbedPane.addTab("<html><body leftmargin=15 topmargin=8 marginwidth=15 marginheight=5 style='font-family:roboto;color:white'>Calendar</body></html>", new CalendarPanel());
+        tabbedPane.setBounds(20,20,960,600);
+        tabbedPane.setBackground(new Color(38, 78, 54));
+        tabbedPane.setForeground(Color.white);
         buttonPanel.add(tabbedPane);
 
-        homePanel = new JPanel();
-        tabbedPane.add("Home", homePanel);
+
+
+        UIManager.put("TabbedPane.borderHightlightColor",new Color(38, 78, 54));
+        UIManager.put("TabbedPane.darkShadow",new Color(38, 78, 54));
+        UIManager.put("TabbedPane.light",new Color(38, 78, 54));
+        UIManager.put("TabbedPane.selectHighlight",new Color(38, 78, 54));
+        UIManager.put("TabbedPane.darkShadow",new Color(38, 78, 54));
+        UIManager.put("TabbedPane.focus",new Color(38, 78, 54));
+
+
 
 
 
