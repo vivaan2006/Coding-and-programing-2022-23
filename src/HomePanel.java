@@ -8,19 +8,19 @@ import java.sql.*;
 public class HomePanel extends JPanel implements ActionListener {
 
     private JPanel anotherPanel;
-
     private JLabel upcomingEvents;
+
+    // Pictures for slideshow
+    private JLabel picture1;
+    private ImageIcon pic1;
+    private ImageIcon pic2;
+
+    private JRadioButton r1, r2, r3;
+
+    private Thread thread;
 
 
     private JButton tableViewer;
-    private JTable table;
-    DefaultTableModel defaultTableModel = new DefaultTableModel();
-    private JScrollPane scrollPane;
-    private Object[] columns = {"Week", "Event", "Location"};
-    private Object[][] data = {{"09/19 - 09/24", "Football vs Payson", "Hillcrest"},
-            {"09/19 - 09/24", "Volleyball vs Cottonwood", "Cottonwood"},
-            {"09/19 - 09/24", "Burning of the H", "Hillcrest"}
-    };
 
 
     public HomePanel() {
@@ -29,10 +29,9 @@ public class HomePanel extends JPanel implements ActionListener {
 
         anotherPanel = new JPanel();
         anotherPanel.setLayout(null);
-        anotherPanel.setBounds(30, 150, 350, 300);
-        anotherPanel.setSize(350, 300);
-        anotherPanel.setBackground(new Color(0, 120, 74));
-        anotherPanel.setVisible(false);
+        anotherPanel.setBounds(50, 75, 200, 430);
+        anotherPanel.setSize(200, 430);
+        anotherPanel.setBackground(Color.WHITE);
         add(anotherPanel);
 
         upcomingEvents = new JLabel("Upcoming Events");
@@ -41,32 +40,51 @@ public class HomePanel extends JPanel implements ActionListener {
         upcomingEvents.setForeground(Color.BLACK);
         add(upcomingEvents);
 
+        pic1 = new ImageIcon(this.getClass().getResource("images/burningH.png"));
+        picture1 = new JLabel(pic1);
+        picture1.setBounds(0, 0, 225, 387);
+        anotherPanel.add(picture1);
 
-        tableViewer = new JButton("View Events");
-        tableViewer.addActionListener(this);
-        tableViewer.setBounds(50, 80, 225, 33);
-        tableViewer.setFocusable(false);
-        tableViewer.setBackground(new java.awt.Color(119, 4, 134));
-        tableViewer.setOpaque(true);
-        add(tableViewer);
+        pic2 = new ImageIcon(this.getClass().getResource("images/hocogame.png"));
 
-        table = new JTable(data, columns);
-        table.setBackground(Color.BLUE);
-        table.setForeground(Color.WHITE);
-        table.setRowHeight(30);
-        table.getColumnModel().getColumn(1).setPreferredWidth(120);
-        table.setBounds(20, 60, 350, 300);
-        table.setFillsViewportHeight(true);
-        anotherPanel.add(table);
+        r1 = new JRadioButton();
+        r1.setBounds(50, 390, 32, 32);
+        anotherPanel.add(r1);
 
+        r2 = new JRadioButton();
+        r2.setBounds(90, 390, 32, 32);
+        anotherPanel.add(r2);
+
+        thread = new Thread(runnable);
+        thread.start();
 
     }
+
+    Runnable runnable = ()-> {
+        try {
+            while(true) {
+                thread.sleep(3000);
+                picture1.setIcon(pic2);
+                r1.setSelected(false);
+                r2.setSelected(true);
+
+                thread.sleep(3000);
+                picture1.setIcon(pic1);
+                r1.setSelected(true);
+                r2.setSelected(false);
+            }
+        } catch(Exception e) {
+
+        }
+    };
+
+
 
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == tableViewer) {
-            anotherPanel.setVisible(true);
+
         }
     }
 }

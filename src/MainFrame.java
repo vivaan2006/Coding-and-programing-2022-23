@@ -20,7 +20,7 @@ public class MainFrame implements ActionListener {
         buttonPanel.setBackground(new Color(0, 120,74));
         buttonPanel.setBounds(0, 0, 1000, 600);
         buttonPanel.setSize(1000, 600);
-        buttonPanel.setBorder(new EmptyBorder(15, 15, 10, 10));
+        buttonPanel.setBorder(new EmptyBorder(15, 15, 10, 0));
 
         frame = new JFrame("Main Screen");
         frame.add(buttonPanel);
@@ -34,13 +34,12 @@ public class MainFrame implements ActionListener {
         tabbedPane.setFont(new Font("Calibri", Font.PLAIN, 16));
         tabbedPane.addTab("<html><body leftmargin=15 topmargin=8 marginwidth=15 marginheight=5 style='font-family:roboto;color:white'>Dashboard</body></html>", new HomePanel());
         tabbedPane.addTab("<html><body leftmargin=15 topmargin=8 marginwidth=15 marginheight=5 style='font-family:roboto;color:white'>Calendar</body></html>", new CalendarPanel());
-        tabbedPane.addTab("<html><body leftmargin=15 topmargin=8 marginwidth=15 marginheight=5 style='font-family:roboto;color:white'>Calendar</body></html>", new CalendarPanel());
+        tabbedPane.addTab("<html><body leftmargin=15 topmargin=8 marginwidth=15 marginheight=5 style='font-family:roboto;color:white'>Prizes</body></html>", new PrizePanel());
+        tabbedPane.addTab("<html><body leftmargin=15 topmargin=8 marginwidth=15 marginheight=5 style='font-family:roboto;color:white'>Add points</body></html>", new TimePanel());
         tabbedPane.setBounds(20,20,960,600);
         tabbedPane.setBackground(new Color(38, 78, 54));
         tabbedPane.setForeground(Color.white);
         buttonPanel.add(tabbedPane);
-
-
 
         UIManager.put("TabbedPane.borderHightlightColor",new Color(38, 78, 54));
         UIManager.put("TabbedPane.darkShadow",new Color(38, 78, 54));
@@ -48,18 +47,6 @@ public class MainFrame implements ActionListener {
         UIManager.put("TabbedPane.selectHighlight",new Color(38, 78, 54));
         UIManager.put("TabbedPane.darkShadow",new Color(38, 78, 54));
         UIManager.put("TabbedPane.focus",new Color(38, 78, 54));
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     }
