@@ -48,7 +48,7 @@ public class MainFrame implements ActionListener {
         tabbedPane.setForeground(Color.white);
         buttonPanel.add(tabbedPane);
 
-        
+
 
 
 
