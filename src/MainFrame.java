@@ -48,12 +48,7 @@ public class MainFrame implements ActionListener {
         tabbedPane.setForeground(Color.white);
         buttonPanel.add(tabbedPane);
 
-        menubar = new JMenuBar();
-        options = new JMenu();
-        menubar.add(options);
-        account = new JMenuItem();
-        options.add(account);
-        account.setIcon(new ImageIcon(this.getClass().getResource()));
+        
 
 
 
