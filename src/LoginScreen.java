@@ -205,7 +205,7 @@ public class LoginScreen implements ActionListener {
                         messageLabel.setForeground(Color.GREEN);
                         messageLabel.setText("Login Successful");
                         frame.dispose();
-                        MyFrame frame = new MyFrame();
+                        MainFrame frame = new MainFrame(resultSet.getString("name"));
                     }
                     else {
                         messageLabel.setForeground(Color.RED);

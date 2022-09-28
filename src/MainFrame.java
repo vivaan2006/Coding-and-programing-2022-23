@@ -9,8 +9,10 @@ public class MainFrame implements ActionListener {
     private JFrame frame;
     private JPanel buttonPanel;
 
-    private Icon logout;
-    private JButton logoutButton;
+
+    private JMenuBar menubar;
+    private JMenuItem account;
+    private JMenu options;
 
     private JLabel dashboard;
 
@@ -45,6 +47,16 @@ public class MainFrame implements ActionListener {
         tabbedPane.setBackground(new Color(38, 78, 54));
         tabbedPane.setForeground(Color.white);
         buttonPanel.add(tabbedPane);
+
+        menubar = new JMenuBar();
+        options = new JMenu();
+        menubar.add(options);
+        account = new JMenuItem();
+        options.add(account);
+        account.setIcon(new ImageIcon(this.getClass().getResource()));
+
+
+
 
 
 
