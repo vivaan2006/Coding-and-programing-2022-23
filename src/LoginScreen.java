@@ -21,15 +21,13 @@ public class LoginScreen implements ActionListener, MouseListener {
     private JLabel studentForgotPassword;
     private JLabel messageLabel;
 
-    private JLabel adminUserID;
-    private JLabel adminPassword;
-    private JTextField adminIDField;
-    private JPasswordField adminPasswordField;
-    private JButton adminLoginButton;
 
     private JPanel panel;
     private ImageIcon logoImage;
     private JLabel title;
+
+    private JLabel newToSpirit;
+    private JLabel createAccount;
 
 
     public LoginScreen() {
@@ -56,37 +54,37 @@ public class LoginScreen implements ActionListener, MouseListener {
 
         // Main student login title
         studentCenterTitle = new JLabel("Student Login");
-        studentCenterTitle.setBounds(90, 100, 350, 100);
+        studentCenterTitle.setBounds(90, 50, 350, 100);
         studentCenterTitle.setFont(new Font("Segoe Print", Font.BOLD, 32));
         studentCenterTitle.setForeground(Color.BLACK);
         background.add(studentCenterTitle);
 
         // Student UserID text
         userID = new JLabel("User Name");
-        userID.setBounds(90, 200, 100, 50);
+        userID.setBounds(90, 150, 100, 50);
         userID.setFont(new Font("Segoe Print", Font.BOLD, 16));
         background.add(userID);
 
         // Student password text
         password = new JLabel("Password");
-        password.setBounds(90, 300, 100, 50);
+        password.setBounds(90, 250, 100, 50);
         password.setFont(new Font("Segoe Print", Font.BOLD, 16));
         background.add(password);
 
         // Student UserID Field
         userIDField = new JTextField();
-        userIDField.setBounds(90, 240, 225, 33);
+        userIDField.setBounds(90, 185, 225, 33);
         background.add(userIDField);
 
         // Student Password Field
         passwordField = new JPasswordField();
-        passwordField.setBounds(90, 340, 225, 33);
+        passwordField.setBounds(90, 285, 225, 33);
         background.add(passwordField);
 
         // Student Login Button
         studentLoginButton = new JButton("Log In");
         studentLoginButton.addActionListener(this);
-        studentLoginButton.setBounds(90, 440, 225, 33);
+        studentLoginButton.setBounds(90, 380, 225, 33);
         studentLoginButton.setFocusable(false);
         studentLoginButton.setBackground(new java.awt.Color(0, 180, 0));
         studentLoginButton.setOpaque(true);
@@ -94,10 +92,22 @@ public class LoginScreen implements ActionListener, MouseListener {
 
         studentForgotPassword = new JLabel("Forgot your password?");
         studentForgotPassword.addMouseListener(this);
-        studentForgotPassword.setBounds(90, 360, 150, 40);
+        studentForgotPassword.setBounds(90, 310, 150, 40);
         studentForgotPassword.setSize(200, 50);
         studentForgotPassword.setForeground(Color.WHITE);
         background.add(studentForgotPassword);
+
+        newToSpirit = new JLabel("Create Account? ");
+        newToSpirit.setBounds(90,425, 150, 40);
+        newToSpirit.setForeground(Color.WHITE);
+        background.add(newToSpirit);
+
+        createAccount = new JLabel("Click here");
+        createAccount.addMouseListener(this);
+        createAccount.setBounds(195, 425, 150, 40);
+        createAccount.setSize(150, 40);
+        createAccount.setForeground(Color.WHITE);
+        background.add(createAccount);
 
         // Message Label
         messageLabel = new JLabel();
@@ -163,7 +173,11 @@ public class LoginScreen implements ActionListener, MouseListener {
         if(e.getSource() == studentForgotPassword) {
             frame.dispose();
             ChangePasswordStudent changePasswordStudent = new ChangePasswordStudent();
+        }
 
+        if(e.getSource() == createAccount) {
+            frame.dispose();
+            CreateAccount createAccount1 = new CreateAccount();
         }
     }
 
@@ -179,12 +193,26 @@ public class LoginScreen implements ActionListener, MouseListener {
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        studentForgotPassword.setForeground(Color.BLUE);
+        if(e.getSource() == studentForgotPassword) {
+            studentForgotPassword.setForeground(Color.BLUE);
+        }
+
+        if(e.getSource() == createAccount) {
+            createAccount.setForeground(Color.BLUE);
+        }
+
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        studentForgotPassword.setForeground(Color.WHITE);
+        if(e.getSource() == studentForgotPassword) {
+            studentForgotPassword.setForeground(Color.WHITE);
+        }
+
+        if(e.getSource() == createAccount) {
+            createAccount.setForeground(Color.WHITE);
+        }
+
 
     }
 }
