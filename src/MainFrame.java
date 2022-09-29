@@ -3,8 +3,10 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-public class MainFrame implements ActionListener {
+public class MainFrame implements ActionListener, MouseListener {
 
     private JFrame frame;
     private JPanel buttonPanel;
@@ -12,7 +14,7 @@ public class MainFrame implements ActionListener {
 
     private JPanel logoutPanel;
     private ImageIcon logoutIcon;
-    private JButton logout;
+    private JLabel logout;
 
     private JLabel dashboard;
 
@@ -43,31 +45,25 @@ public class MainFrame implements ActionListener {
         tabbedPane.addTab("<html><body leftmargin=10 topmargin=8 marginwidth=10 marginheight=5 style='font-family:roboto;color:white'>Add points</body></html>", new TimePanel());
         tabbedPane.addTab("<html><body leftmargin=10 topmargin=8 marginwidth=10 marginheight=5 style='font-family:roboto;color:white'>Events</body></html>", new TimePanel());
         tabbedPane.addTab("<html><body leftmargin=10 topmargin=8 marginwidth=10 marginheight=5 style='font-family:roboto;color:white'>Find Friends</body></html>", new TimePanel());
-        tabbedPane.setBounds(20,20,960,600);
+        tabbedPane.setBounds(25,20,960,600);
         tabbedPane.setBackground(new Color(38, 78, 54));
         tabbedPane.setForeground(Color.white);
         buttonPanel.add(tabbedPane);
 
         logoutPanel = new JPanel();
         logoutPanel.setLayout(null);
-        logoutPanel.setBackground(new Color(0, 58, 120));
-        logoutPanel.setBounds(860, 0, 100, 100);
-        logoutPanel.setSize(100, 100);
+        logoutPanel.setBackground(new Color(0, 120, 74));
+        logoutPanel.setBounds(860, 10, 100, 40);
+        logoutPanel.setSize(100, 40);
         buttonPanel.add(logoutPanel);
 
-        logout = new JButton("Logout");
-        logout.addActionListener(this);
-        logout.setBounds(0, 0, 100, 55);
-        logout.setFocusable(false);
-        logout.setBackground(new java.awt.Color(0, 180, 0));
-        logout.setOpaque(true);
+
+        logout = new JLabel(new ImageIcon(this.getClass().getResource("images/logout.png")));
+        logout.addMouseListener(this);
+        logout.setBounds(0, 0, 100, 40);
+        logout.setSize(100, 40);
+        logout.setForeground(Color.WHITE);
         logoutPanel.add(logout);
-
-
-
-
-
-
 
         UIManager.put("TabbedPane.borderHightlightColor",new Color(38, 78, 54));
         UIManager.put("TabbedPane.darkShadow",new Color(38, 78, 54));
@@ -85,5 +81,33 @@ public class MainFrame implements ActionListener {
             LoginScreen loginScreen = new LoginScreen();
         }
 
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        if(e.getSource() == logout) {
+            frame.dispose();
+            LoginScreen loginScreen = new LoginScreen();
+        }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        logoutPanel.setBackground(Color.lightGray);
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        logoutPanel.setBackground(new Color(0, 120, 74));
     }
 }
