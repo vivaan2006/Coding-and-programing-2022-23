@@ -184,7 +184,7 @@ public class CreateAccount implements ActionListener {
 
             else {
                 try {
-                    Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/loginstudent", "root", "Ramki@7717");
+                    Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/loginstudent", "root", "FBLA2023");
                     Statement statement = connection.createStatement();
 
                     statement.executeUpdate("insert into login_info_student (userName, name, phone, password, email, securityQuestion, answer) values('"+userName+"', '"+name+"', '"+phone+"', '"+password+"', '"+email+"', '"+securityQuestion+"', '"+answer+"')");
