@@ -2,9 +2,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.sql.*;
 
-public class LoginScreen implements ActionListener {
+public class LoginScreen implements ActionListener, MouseListener {
     private JFrame frame;
     private ImageIcon backgroundImage;
     private JLabel background;
@@ -16,7 +18,7 @@ public class LoginScreen implements ActionListener {
     private JTextField userIDField;
     private JPasswordField passwordField;
     private JButton studentLoginButton;
-    private JButton studentForgotPassword;
+    private JLabel studentForgotPassword;
     private JLabel messageLabel;
 
     private JLabel adminUserID;
@@ -90,13 +92,7 @@ public class LoginScreen implements ActionListener {
         studentLoginButton.setOpaque(true);
         background.add(studentLoginButton);
 
-        studentForgotPassword = new JButton("Change Password");
-        studentForgotPassword.addActionListener(this);
-        studentForgotPassword.setBounds(60, 400, 225, 33);
-        studentForgotPassword.setFocusable(false);
-        studentForgotPassword.setBackground(Color.RED);
-        studentForgotPassword.setOpaque(true);
-        background.add(studentForgotPassword);
+
 
         // Main Admin Login Title
         adminCenterTitle = new JLabel("Admin Login");
@@ -135,6 +131,13 @@ public class LoginScreen implements ActionListener {
         adminLoginButton.setBackground(new java.awt.Color(0, 180, 0));
         adminLoginButton.setOpaque(true);
         background.add(adminLoginButton);
+
+        studentForgotPassword = new JLabel("Forgot your password?");
+        studentForgotPassword.addMouseListener(this);
+        studentForgotPassword.setBounds(60, 360, 200, 50);
+        studentForgotPassword.setSize(200, 50);
+        studentForgotPassword.setForeground(Color.WHITE);
+        background.add(studentForgotPassword);
 
         // Message Label
         messageLabel = new JLabel();
@@ -218,12 +221,36 @@ public class LoginScreen implements ActionListener {
 
         }
 
+
+
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
         if(e.getSource() == studentForgotPassword) {
             frame.dispose();
             ChangePasswordStudent changePasswordStudent = new ChangePasswordStudent();
 
-
         }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        studentForgotPassword.setForeground(Color.BLUE);
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
 
     }
 }
