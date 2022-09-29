@@ -150,7 +150,7 @@ public class ChangePasswordStudent implements ActionListener {
             String userName = userIDField.getText();
 
             try {
-                Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/loginstudent", "root", "Ramki@7717");
+                Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/loginstudent", "root", "FBLA2023");
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery("select securityQuestion from login_info_student where userName='"+userName+"'");
 
@@ -174,7 +174,7 @@ public class ChangePasswordStudent implements ActionListener {
             String answer1 = answerField.getText();
 
             try {
-                Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/loginstudent", "root", "Ramki@7717");
+                Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/loginstudent", "root", "FBLA2023");
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery("select answer from login_info_student where userName='"+userName+"'");
 

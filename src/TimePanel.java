@@ -50,7 +50,7 @@ public class TimePanel extends JPanel implements ActionListener {
 
         // Describe Label
         describeLabel = new JLabel("Describe your Experience");
-        describeLabel.setBounds(400, 160, 300, 50);
+        describeLabel.setBounds(400, 160, 330, 50);
         describeLabel.setFont(new Font("Segoe Print", Font.BOLD, 24));
         add(describeLabel);
 

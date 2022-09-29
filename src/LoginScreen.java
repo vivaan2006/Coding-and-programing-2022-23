@@ -164,13 +164,10 @@ public class LoginScreen implements ActionListener {
             String studentUserID = userIDField.getText();
             String studentPassword = String.valueOf(passwordField.getPassword());
 
-
             try {
                 Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/loginstudent", "root", "FBLA2023");
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery("select * from login_info_student");
-
-
 
                 while(resultSet.next()) {
                     if(resultSet.getString("userName").equals(studentUserID) && resultSet.getString("password").equals(studentPassword)) {
@@ -190,7 +187,6 @@ public class LoginScreen implements ActionListener {
             }
 
         }
-
         if(e.getSource() == adminLoginButton) {
             String adminUserID = adminIDField.getText();
             String adminPassword = String.valueOf(adminPasswordField.getPassword());
@@ -215,9 +211,7 @@ public class LoginScreen implements ActionListener {
             } catch(SQLException sqlException) {
                 sqlException.printStackTrace();
             }
-
         }
-
         if(e.getSource() == studentForgotPassword) {
             frame.dispose();
             ChangePasswordStudent changePasswordStudent = new ChangePasswordStudent();
