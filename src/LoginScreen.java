@@ -28,7 +28,7 @@ public class LoginScreen implements ActionListener {
     private JPanel panel;
     private ImageIcon logoImage;
     private JLabel title;
-
+    private JButton createAccount;
 
     public LoginScreen() {
         // Background image
@@ -142,6 +142,16 @@ public class LoginScreen implements ActionListener {
         messageLabel.setFont(new Font("Segoe Print", Font.BOLD, 20));
         background.add(messageLabel);
 
+        // create account
+        createAccount = new JButton("Create Account");
+        createAccount.addActionListener(this);
+        createAccount.setBounds(60, 480, 225, 33);
+        createAccount.setFocusable(false);
+        createAccount.setBackground(new java.awt.Color(0, 180, 0));
+        createAccount.setOpaque(true);
+        background.add(createAccount);
+
+
         // Frame
         frame = new JFrame("Login Screen");
         frame.add(background);
@@ -215,9 +225,10 @@ public class LoginScreen implements ActionListener {
         if(e.getSource() == studentForgotPassword) {
             frame.dispose();
             ChangePasswordStudent changePasswordStudent = new ChangePasswordStudent();
-
-
         }
-
+        if(e.getSource()== createAccount){
+            frame.dispose();
+            CreateAccount createAccount = new CreateAccount();
+        }
     }
 }

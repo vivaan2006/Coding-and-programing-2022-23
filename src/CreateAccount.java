@@ -27,7 +27,7 @@ public class CreateAccount implements ActionListener {
     private JTextField emailField;
     private JComboBox securityQuestionBox;
     private JTextField answerField;
-
+    private JButton back;
     private String[] choices = {"What is your nick name?", "What is your mothers name?", "What is the name of your first pet?"};
 
     public CreateAccount() {
@@ -137,7 +137,11 @@ public class CreateAccount implements ActionListener {
         createButton.setBackground(new java.awt.Color(0, 180, 0));
         createButton.setOpaque(true);
         panel1.add(createButton);
-
+        //back button
+        back = new JButton("Back");
+        back.addActionListener(this);
+        back.setBounds(0, 20, 140, 50);
+        panel1.add(back);
         // Frame
         frame = new JFrame("Change Password");
         frame.add(panel);
@@ -147,7 +151,6 @@ public class CreateAccount implements ActionListener {
         frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-
     }
 
     public static void main(String[] args) {
@@ -156,48 +159,47 @@ public class CreateAccount implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == back) {
+            frame.dispose();
+            LoginScreen back = new LoginScreen();
+        }
+            EmailValidator emailValidator = new EmailValidator();
 
-        EmailValidator emailValidator = new EmailValidator();
+            if (e.getSource() == createButton) {
+                String userName = userNameField.getText();
+                String name = nameField.getText();
+                String phone = phoneField.getText();
+                String password = String.valueOf(passwordField.getPassword());
+                String email = emailField.getText();
+                String securityQuestion = (String) securityQuestionBox.getSelectedItem();
+                String answer = answerField.getText();
 
-        if(e.getSource() == createButton) {
-            String userName = userNameField.getText();
-            String name = nameField.getText();
-            String phone = phoneField.getText();
-            String password = String.valueOf(passwordField.getPassword());
-            String email = emailField.getText();
-            String securityQuestion = (String) securityQuestionBox.getSelectedItem();
-            String answer = answerField.getText();
+                if (password.equals("")) {
+                    JOptionPane.showMessageDialog(null, "All fields need to be completed properly");
+                } else if (!emailValidator.validate(email.trim())) {
+                    JOptionPane.showMessageDialog(null, "All fields need to be completed properly");
+                } else if (answer.equals("")) {
+                    JOptionPane.showMessageDialog(null, "All fields need to be completed properly");
+                } else if (userName.equals("")) {
+                    JOptionPane.showMessageDialog(null, "All fields need to be completed properly");
+                } else if (name.equals("")) {
+                    JOptionPane.showMessageDialog(null, "All fields need to be completed properly");
+                } else if (phone.equals("")) {
+                    JOptionPane.showMessageDialog(null, "All fields need to be completed properly");
+                } else {
+                    try {
+                        Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/loginstudent", "root", "FBLA2023");
+                        Statement statement = connection.createStatement();
 
-            if(password.equals("")) {
-                JOptionPane.showMessageDialog(null, "All fields need to be completed properly");
-            } else if(!emailValidator.validate(email.trim())) {
-                JOptionPane.showMessageDialog(null, "All fields need to be completed properly");
-            } else if(answer.equals("")) {
-                JOptionPane.showMessageDialog(null, "All fields need to be completed properly");
-            } else if(userName.equals("")) {
-                JOptionPane.showMessageDialog(null, "All fields need to be completed properly");
-            } else if(name.equals("")) {
-                JOptionPane.showMessageDialog(null, "All fields need to be completed properly");
-            } else if(phone.equals("")) {
-                JOptionPane.showMessageDialog(null, "All fields need to be completed properly");
-            }
+                        statement.executeUpdate("insert into login_info_student (userName, name, phone, password, email, securityQuestion, answer) values('" + userName + "', '" + name + "', '" + phone + "', '" + password + "', '" + email + "', '" + securityQuestion + "', '" + answer + "')");
+                        JOptionPane.showMessageDialog(null, "Thanks for registration");
+                        frame.dispose();
+                        LoginScreen loginScreen = new LoginScreen();
 
-            else {
-                try {
-                    Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/loginstudent", "root", "FBLA2023");
-                    Statement statement = connection.createStatement();
-
-                    statement.executeUpdate("insert into login_info_student (userName, name, phone, password, email, securityQuestion, answer) values('"+userName+"', '"+name+"', '"+phone+"', '"+password+"', '"+email+"', '"+securityQuestion+"', '"+answer+"')");
-                    JOptionPane.showMessageDialog(null, "Thanks for registration");
-                    frame.dispose();
-                    LoginScreen loginScreen = new LoginScreen();
-
-                } catch(SQLException sqlException){
-                    JOptionPane.showMessageDialog(null, "Something went wrong, please try again later.");
+                    } catch (SQLException sqlException) {
+                        JOptionPane.showMessageDialog(null, "Something went wrong, please try again later.");
+                    }
                 }
             }
-            }
-
-
     }
 }
