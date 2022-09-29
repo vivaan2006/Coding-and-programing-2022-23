@@ -43,7 +43,7 @@ public class MainFrame implements ActionListener {
         tabbedPane.addTab("<html><body leftmargin=10 topmargin=8 marginwidth=10 marginheight=5 style='font-family:roboto;color:white'>Add points</body></html>", new TimePanel());
         tabbedPane.addTab("<html><body leftmargin=10 topmargin=8 marginwidth=10 marginheight=5 style='font-family:roboto;color:white'>Events</body></html>", new TimePanel());
         tabbedPane.addTab("<html><body leftmargin=10 topmargin=8 marginwidth=10 marginheight=5 style='font-family:roboto;color:white'>Find Friends</body></html>", new TimePanel());
-        tabbedPane.setBounds(20,20,960,600);
+        tabbedPane.setBounds(25,20,960,600);
         tabbedPane.setBackground(new Color(38, 78, 54));
         tabbedPane.setForeground(Color.white);
         buttonPanel.add(tabbedPane);
@@ -51,15 +51,15 @@ public class MainFrame implements ActionListener {
         logoutPanel = new JPanel();
         logoutPanel.setLayout(null);
         logoutPanel.setBackground(new Color(0, 58, 120));
-        logoutPanel.setBounds(860, 0, 100, 100);
-        logoutPanel.setSize(100, 100);
+        logoutPanel.setBounds(860, 10, 100, 40);
+        logoutPanel.setSize(100, 40);
         buttonPanel.add(logoutPanel);
 
-        logout = new JButton("Logout");
+        logout = new JButton(new ImageIcon(this.getClass().getResource("images/logout.png")));
         logout.addActionListener(this);
-        logout.setBounds(0, 0, 100, 55);
+        logout.setBounds(0, 0, 100, 40);
         logout.setFocusable(false);
-        logout.setBackground(new java.awt.Color(0, 180, 0));
+        logout.setBackground(new java.awt.Color(0, 120, 74));
         logout.setOpaque(true);
         logoutPanel.add(logout);
 

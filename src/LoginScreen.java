@@ -134,7 +134,7 @@ public class LoginScreen implements ActionListener, MouseListener {
 
         studentForgotPassword = new JLabel("Forgot your password?");
         studentForgotPassword.addMouseListener(this);
-        studentForgotPassword.setBounds(60, 360, 200, 50);
+        studentForgotPassword.setBounds(60, 360, 150, 40);
         studentForgotPassword.setSize(200, 50);
         studentForgotPassword.setForeground(Color.WHITE);
         background.add(studentForgotPassword);
@@ -251,6 +251,7 @@ public class LoginScreen implements ActionListener, MouseListener {
 
     @Override
     public void mouseExited(MouseEvent e) {
+        studentForgotPassword.setForeground(Color.WHITE);
 
     }
 }
