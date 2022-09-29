@@ -65,10 +65,6 @@ public class MainFrame implements ActionListener, MouseListener {
         logout.setForeground(Color.WHITE);
         logoutPanel.add(logout);
 
-
-
-
-
         UIManager.put("TabbedPane.borderHightlightColor",new Color(38, 78, 54));
         UIManager.put("TabbedPane.darkShadow",new Color(38, 78, 54));
         UIManager.put("TabbedPane.light",new Color(38, 78, 54));
@@ -107,7 +103,7 @@ public class MainFrame implements ActionListener, MouseListener {
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        logoutPanel.setBackground(Color.WHITE);
+        logoutPanel.setBackground(Color.lightGray);
     }
 
     @Override
