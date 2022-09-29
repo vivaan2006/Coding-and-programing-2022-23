@@ -166,7 +166,7 @@ public class LoginScreen implements ActionListener {
 
 
             try {
-                Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/loginstudent", "root", "Ramki@7717");
+                Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/loginstudent", "root", "FBLA2023");
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery("select * from login_info_student");
 
@@ -196,7 +196,7 @@ public class LoginScreen implements ActionListener {
             String adminPassword = String.valueOf(adminPasswordField.getPassword());
 
             try {
-                Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/loginstudent", "root", "Ramki@7717");
+                Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/loginstudent", "root", "FBLA2023");
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery("select * from login_info_admin");
 
