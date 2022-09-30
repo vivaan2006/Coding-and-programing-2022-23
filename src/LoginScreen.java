@@ -54,37 +54,37 @@ public class LoginScreen implements ActionListener {
 
         // Main student login title
         studentCenterTitle = new JLabel("Student Login");
-        studentCenterTitle.setBounds(60, 100, 350, 100);
+        studentCenterTitle.setBounds(110, 50, 350, 100);
         studentCenterTitle.setFont(new Font("Segoe Print", Font.BOLD, 32));
         studentCenterTitle.setForeground(Color.BLACK);
         background.add(studentCenterTitle);
 
         // Student UserID text
         userID = new JLabel("User Name");
-        userID.setBounds(60, 200, 100, 50);
+        userID.setBounds(110, 150, 100, 50);
         userID.setFont(new Font("Segoe Print", Font.BOLD, 16));
         background.add(userID);
 
         // Student password text
         password = new JLabel("Password");
-        password.setBounds(60, 300, 100, 50);
+        password.setBounds(110, 250, 100, 50);
         password.setFont(new Font("Segoe Print", Font.BOLD, 16));
         background.add(password);
 
         // Student UserID Field
         userIDField = new JTextField();
-        userIDField.setBounds(60, 240, 225, 33);
+        userIDField.setBounds(110, 190, 225, 33);
         background.add(userIDField);
 
         // Student Password Field
         passwordField = new JPasswordField();
-        passwordField.setBounds(60, 340, 225, 33);
+        passwordField.setBounds(110, 290, 225, 33);
         background.add(passwordField);
 
         // Student Login Button
         studentLoginButton = new JButton("Log In");
         studentLoginButton.addActionListener(this);
-        studentLoginButton.setBounds(60, 440, 225, 33);
+        studentLoginButton.setBounds(110, 390, 225, 33);
         studentLoginButton.setFocusable(false);
         studentLoginButton.setBackground(new java.awt.Color(0, 180, 0));
         studentLoginButton.setOpaque(true);
@@ -92,60 +92,23 @@ public class LoginScreen implements ActionListener {
 
         studentForgotPassword = new JButton("Change Password");
         studentForgotPassword.addActionListener(this);
-        studentForgotPassword.setBounds(60, 400, 225, 33);
+        studentForgotPassword.setBounds(110, 350, 225, 33);
         studentForgotPassword.setFocusable(false);
         studentForgotPassword.setBackground(Color.RED);
         studentForgotPassword.setOpaque(true);
         background.add(studentForgotPassword);
 
-        // Main Admin Login Title
-        adminCenterTitle = new JLabel("Admin Login");
-        adminCenterTitle.setBounds(410, 100, 350, 100);
-        adminCenterTitle.setFont(new Font("Segoe Print", Font.BOLD, 32));
-        adminCenterTitle.setForeground(Color.BLACK);
-        background.add(adminCenterTitle);
-
-        // Admin UserID text
-        adminUserID = new JLabel("Admin ID");
-        adminUserID.setBounds(410, 200, 100, 50);
-        adminUserID.setFont(new Font("Segoe Print", Font.BOLD, 16));
-        background.add(adminUserID);
-
-        // Admin password text
-        adminPassword = new JLabel("Password");
-        adminPassword.setBounds(410, 300, 100, 50);
-        adminPassword.setFont(new Font("Segoe Print", Font.BOLD, 16));
-        background.add(adminPassword);
-
-        // Admin UserID Field
-        adminIDField = new JTextField();
-        adminIDField.setBounds(410, 240, 225, 33);
-        background.add(adminIDField);
-
-        // Admin Password Field
-        adminPasswordField = new JPasswordField();
-        adminPasswordField.setBounds(410, 340, 225, 33);
-        background.add(adminPasswordField);
-
-        // Admin Login Button
-        adminLoginButton = new JButton("Log In");
-        adminLoginButton.addActionListener(this);
-        adminLoginButton.setBounds(410, 440, 225, 33);
-        adminLoginButton.setFocusable(false);
-        adminLoginButton.setBackground(new java.awt.Color(0, 180, 0));
-        adminLoginButton.setOpaque(true);
-        background.add(adminLoginButton);
 
         // Message Label
         messageLabel = new JLabel();
-        messageLabel.setBounds(140, 500, 400, 50);
+        messageLabel.setBounds(140, 450, 400, 50);
         messageLabel.setFont(new Font("Segoe Print", Font.BOLD, 20));
         background.add(messageLabel);
 
         // create account
         createAccount = new JButton("Create Account");
         createAccount.addActionListener(this);
-        createAccount.setBounds(60, 480, 225, 33);
+        createAccount.setBounds(110, 430, 225, 33);
         createAccount.setFocusable(false);
         createAccount.setBackground(new java.awt.Color(0, 180, 0));
         createAccount.setOpaque(true);
@@ -156,7 +119,7 @@ public class LoginScreen implements ActionListener {
         frame = new JFrame("Login Screen");
         frame.add(background);
         frame.add(panel);
-        frame.setSize(1000, 600);
+        frame.setSize(800, 550);
         frame.setLayout(null);
         frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
