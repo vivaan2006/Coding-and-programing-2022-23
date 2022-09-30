@@ -31,7 +31,7 @@ public class MainFrame implements ActionListener, MouseListener {
 
         frame = new JFrame("Main Screen");
         frame.add(buttonPanel);
-        frame.setSize(1000, 600);
+        frame.setSize(1018, 600);
         frame.setLayout(null);
         frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
