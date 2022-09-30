@@ -44,7 +44,6 @@ public class LoginScreen implements ActionListener {
         panel.setBounds(0, 0, 300, 600);
         panel.setSize(300, 600);
 
-
         // Logo Image
         logoImage = new ImageIcon(this.getClass().getResource("images/logo.png"));
         title = new JLabel(logoImage);
