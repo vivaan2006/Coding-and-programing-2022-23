@@ -17,13 +17,20 @@ public class HomePanel extends JPanel implements ActionListener {
 
     private JRadioButton r1, r2, r3;
 
+    // Portfolio Panel
+
+    private JPanel portfolioPanel;
+    private JLabel realName;
+    private String dbname;
+    private JButton seePoints;
+    private JLabel points;
+
     private Thread thread;
 
+    public HomePanel(String name) {
 
-    private JButton tableViewer;
+        dbname = name;
 
-
-    public HomePanel() {
         setLayout(null);
         setBackground(new Color(0, 120, 74));
 
@@ -58,6 +65,33 @@ public class HomePanel extends JPanel implements ActionListener {
         thread = new Thread(runnable);
         thread.start();
 
+        portfolioPanel = new JPanel();
+        portfolioPanel.setLayout(null);
+        portfolioPanel.setBounds(475, 75, 400, 387);
+        portfolioPanel.setSize(400, 387);
+        portfolioPanel.setBackground(Color.WHITE);
+        add(portfolioPanel);
+
+        realName = new JLabel("Name: " + name);
+        realName.setBounds(20, 20, 200, 50);
+        realName.setFont(new Font("Segoe Print", Font.BOLD, 18));
+        realName.setForeground(Color.BLACK);
+        portfolioPanel.add(realName);
+
+        seePoints = new JButton("Your points");
+        seePoints.addActionListener(this);
+        seePoints.setBounds(20, 75, 150, 33);
+        seePoints.setFocusable(false);
+        seePoints.setBackground(new java.awt.Color(0, 180, 0));
+        seePoints.setOpaque(true);
+        portfolioPanel.add(seePoints);
+
+        points = new JLabel();
+        points.setBounds(20, 120, 200, 30);
+        points.setFont(new Font("Calibri", Font.BOLD, 20));
+        points.setForeground(Color.BLACK);
+        portfolioPanel.add(points);
+
     }
 
     Runnable runnable = ()-> {
@@ -83,8 +117,20 @@ public class HomePanel extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == tableViewer) {
+        if(e.getSource() == seePoints) {
+            try {
+                Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/loginstudent", "root", "FBLA2023");
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery("select userPoints from login_info_student where name='"+dbname+"'");
 
+                if(resultSet.next()) {
+                    points.setText("Points: " + resultSet.getInt("userPoints"));
+                } else {
+                    JOptionPane.showMessageDialog(null, "Name not found");
+                }
+            } catch(SQLException sqlException) {
+                JOptionPane.showMessageDialog(null, "Error in connection");
+            }
         }
     }
 }
