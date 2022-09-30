@@ -17,7 +17,7 @@ public class MainFrame implements ActionListener, MouseListener {
     private JLabel logout;
 
     private JLabel dashboard;
-
+    private JLabel logoutButton;
     // Tabbed pane
 
     public MainFrame(String name) {
@@ -50,6 +50,7 @@ public class MainFrame implements ActionListener, MouseListener {
         tabbedPane.setForeground(Color.white);
         buttonPanel.add(tabbedPane);
 
+
         logoutPanel = new JPanel();
         logoutPanel.setLayout(null);
         logoutPanel.setBackground(new Color(0, 120, 74));
@@ -58,12 +59,13 @@ public class MainFrame implements ActionListener, MouseListener {
         buttonPanel.add(logoutPanel);
 
 
-        logout = new JLabel(new ImageIcon(this.getClass().getResource("images/logout.png")));
-        logout.addMouseListener(this);
-        logout.setBounds(0, 0, 100, 40);
-        logout.setSize(100, 40);
-        logout.setForeground(Color.WHITE);
-        logoutPanel.add(logout);
+        logoutButton = new JLabel(new ImageIcon(this.getClass().getResource("images/logout.png")));
+        logoutButton.addMouseListener(this);
+        logoutButton.setBounds(0, 0, 100, 40);
+        logoutButton.setSize(100, 40);
+        logoutButton.setForeground(Color.WHITE);
+        logoutPanel.add(logoutButton);
+
 
         UIManager.put("TabbedPane.borderHightlightColor",new Color(38, 78, 54));
         UIManager.put("TabbedPane.darkShadow",new Color(38, 78, 54));
@@ -77,7 +79,7 @@ public class MainFrame implements ActionListener, MouseListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == logout) {
+        if(e.getSource() == logoutButton) {
             LoginScreen loginScreen = new LoginScreen();
         }
 
@@ -85,7 +87,7 @@ public class MainFrame implements ActionListener, MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if(e.getSource() == logout) {
+        if(e.getSource() == logoutButton) {
             frame.dispose();
             LoginScreen loginScreen = new LoginScreen();
         }
