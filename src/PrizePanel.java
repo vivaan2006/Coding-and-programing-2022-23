@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 public class PrizePanel extends JPanel implements ActionListener {
 
     private JLabel totalPoints;
-    private int points;
+    private int dbPoints;
 
     // Points for items
     private int homeworkPassPoints = 100;
@@ -22,9 +22,11 @@ public class PrizePanel extends JPanel implements ActionListener {
 
 
 
-    public PrizePanel() {
+    public PrizePanel(int points) {
         setLayout(null);
         setBackground(new Color(0, 120, 74));
+
+        dbPoints = points;
 
         components();
 
@@ -32,7 +34,7 @@ public class PrizePanel extends JPanel implements ActionListener {
     }
 
     public void components() {
-        totalPoints = new JLabel("Total points: " + points);
+        totalPoints = new JLabel("Total points: " + dbPoints);
         totalPoints.setBounds(30, 20, 350, 30);
         totalPoints.setFont(new Font("Segoe Print", Font.BOLD, 16));
         totalPoints.setForeground(Color.BLACK);
@@ -67,27 +69,25 @@ public class PrizePanel extends JPanel implements ActionListener {
         add(hoodieButton);
 
 
-
-
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == homeworkPass) {
-            if(points >= homeworkPassPoints) {
+            if(dbPoints >= homeworkPassPoints) {
                 JOptionPane.showMessageDialog(null, "Purchased Homework Pass");
-                points = points - homeworkPassPoints;
-                totalPoints.setText("Total points: " + points);
+                dbPoints = dbPoints - homeworkPassPoints;
+                totalPoints.setText("Total points: " + dbPoints);
             } else {
                 JOptionPane.showMessageDialog(null, "Not enough points to purchase item");
             }
         }
 
         if(e.getSource() == hoodieButton) {
-            if(points >= hoodiePoints) {
+            if(dbPoints >= hoodiePoints) {
                 JOptionPane.showMessageDialog(null, "Purchased Hoodie");
-                points = points - hoodiePoints;
-                totalPoints.setText("Total points: " + points);
+                dbPoints = dbPoints - hoodiePoints;
+                totalPoints.setText("Total points: " + dbPoints);
              } else {
                 JOptionPane.showMessageDialog(null, "Not enough points to purchase item");
             }
