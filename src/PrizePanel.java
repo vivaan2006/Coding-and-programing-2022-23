@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 public class PrizePanel extends JPanel implements ActionListener {
 
     private JLabel totalPoints;
-    private int points = 1000;
+    private int points;
 
     // Points for items
     private int homeworkPassPoints = 100;
