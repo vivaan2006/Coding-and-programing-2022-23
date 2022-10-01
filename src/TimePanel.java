@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.*;
 
 public class TimePanel extends JPanel implements ActionListener {
 
@@ -31,9 +32,14 @@ public class TimePanel extends JPanel implements ActionListener {
     private JComboBox specificVolunteer;
     private String[] specificEventsVolunteer = {"Choose specific event", "Animal shelter", "Tutoring", "CVHS Grader"};
 
-    public TimePanel() {
+    private int dbPoints;
+    private String dbName;
+    public TimePanel(String name, int points) {
         setLayout(null);
         setBackground(new Color(0, 120, 74));
+
+        dbName = name;
+        dbPoints = points;
 
 
         title = new JLabel("Add Time");
@@ -126,6 +132,22 @@ public class TimePanel extends JPanel implements ActionListener {
                     add(specificVolunteer);
                     break;
 
+            }
+        }
+
+        if(e.getSource() == approval) {
+
+            dbPoints = dbPoints + 100;
+            System.out.println(dbPoints);
+
+            try {
+                Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/loginstudent", "root", "FBLA2023");
+                Statement statement = connection.createStatement();
+                statement.executeUpdate("update login_info_student set userPoints='"+dbPoints+"' where name='"+dbName+"'");
+                JOptionPane.showMessageDialog(null, "Updated points");
+
+            } catch (SQLException sqlException) {
+                JOptionPane.showMessageDialog(null, "Error in connection");
             }
         }
 
