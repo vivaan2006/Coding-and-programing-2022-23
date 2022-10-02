@@ -15,6 +15,7 @@ public class TimePanel extends JPanel implements ActionListener {
 
     private JButton approval;
     private JButton home;
+    private JButton showPoints;
     private JTextArea describe;
 
     private JComboBox event;
@@ -109,6 +110,14 @@ public class TimePanel extends JPanel implements ActionListener {
         approval.setOpaque(true);
         add(approval);
 
+        showPoints = new JButton("Reset");
+        showPoints.addActionListener(this);
+        showPoints.setBounds(20, 460, 225, 33);
+        showPoints.setFocusable(false);
+        showPoints.setBackground(new Color(0, 180, 0));
+        showPoints.setOpaque(true);
+        add(showPoints);
+
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -135,21 +144,38 @@ public class TimePanel extends JPanel implements ActionListener {
             }
         }
 
-        if(e.getSource() == approval) {
-
-            dbPoints = dbPoints + 100;
-            System.out.println(dbPoints);
-
+        if(e.getSource() == showPoints) {
             try {
                 Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/loginstudent", "root", "FBLA2023");
                 Statement statement = connection.createStatement();
-                statement.executeUpdate("update login_info_student set userPoints='"+dbPoints+"' where name='"+dbName+"'");
-                JOptionPane.showMessageDialog(null, "Updated points");
+                ResultSet resultSet = statement.executeQuery("select userPoints from login_info_student where name='" + dbName + "'");
+
+                if(resultSet.next()) {
+                    dbPoints = resultSet.getInt("userPoints");
+                }
 
             } catch (SQLException sqlException) {
                 JOptionPane.showMessageDialog(null, "Error in connection");
             }
+            System.out.println(dbPoints);
         }
+
+        if(e.getSource() == approval) {
+
+                dbPoints = dbPoints + 100;
+                JOptionPane.showMessageDialog(null, "Added 100 points");
+                try {
+                    Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/loginstudent", "root", "FBLA2023");
+                    Statement statement = connection.createStatement();
+                    statement.executeUpdate("update login_info_student set userPoints='"+dbPoints+"' where name='"+dbName+"'");
+
+                } catch (SQLException sqlException) {
+                    JOptionPane.showMessageDialog(null, "Error in connection");
+                }
+            }
+
+
+
 
     }
 }

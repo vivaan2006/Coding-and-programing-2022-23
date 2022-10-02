@@ -120,6 +120,15 @@ public class PrizePanel extends JPanel implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Purchased Hoodie");
                 dbPoints = dbPoints - hoodiePoints;
                 totalPoints.setText("Total points: " + dbPoints);
+
+                try {
+                    Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/loginstudent", "root", "FBLA2023");
+                    Statement statement = connection.createStatement();
+                    statement.executeUpdate("update login_info_student set userPoints='"+dbPoints+"' where name='"+dbName+"'");
+                } catch (SQLException sqlException) {
+                    JOptionPane.showMessageDialog(null, "Error in connection");
+                }
+
              } else {
                 JOptionPane.showMessageDialog(null, "Not enough points to purchase item");
             }
