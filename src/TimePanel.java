@@ -102,30 +102,25 @@ public class TimePanel extends JPanel implements ActionListener {
         approval.setBackground(new Color(0, 180, 0));
         approval.setOpaque(true);
         add(approval);
-
     }
-
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == event) {
             JComboBox cb = (JComboBox)e.getSource();
             String value = (String)cb.getSelectedItem();
 
-            switch(value) {
-                case "Football game":
+            switch (value) {
+                case "Football game" -> {
                     add(specificLabelFootball);
                     add(specificFootball);
-                    break;
-
-                case "Basketball game":
+                }
+                case "Basketball game" -> {
                     add(specificLabelBasketball);
                     add(specificBasketball);
-                    break;
-
-                case "Volunteer":
+                }
+                case "Volunteer" -> {
                     add(specificLabelVolunteer);
                     add(specificVolunteer);
-                    break;
-
+                }
             }
         }
 
