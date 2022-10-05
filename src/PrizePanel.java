@@ -37,10 +37,16 @@ public class PrizePanel extends JPanel implements ActionListener {
     private JLabel gym;
     private JLabel amazon;
     private JLabel poster;
+    private JScrollPane scroll;
     public PrizePanel() {
+        /*JScrollPane scrollPane = new JScrollPane();
+        scrollPane.setBounds(0,0,1000,600);
+        this.add(scrollPane);*/
+
         setLayout(null);
         setBackground(new Color(0, 120, 74));
         components();
+
     }
 
     public void components() {
