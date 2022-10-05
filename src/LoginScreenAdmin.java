@@ -118,7 +118,7 @@ public class LoginScreenAdmin implements ActionListener {
                         messageLabel.setForeground(Color.GREEN);
                         messageLabel.setText("Login Successful");
                         frame.dispose();
-                        MainFrame frame = new MainFrame(resultSet.getString("name"));
+                        MainFrame frame = new MainFrame(resultSet.getString("name"), resultSet.getInt("userPoints"));
                     }
                     else {
                         messageLabel.setForeground(Color.RED);

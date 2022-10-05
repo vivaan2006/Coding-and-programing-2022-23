@@ -44,7 +44,6 @@ public class LoginScreen implements ActionListener {
         panel.setBounds(0, 0, 300, 600);
         panel.setSize(300, 600);
 
-
         // Logo Image
         logoImage = new ImageIcon(this.getClass().getResource("images/logo.png"));
         title = new JLabel(logoImage);
@@ -184,7 +183,7 @@ public class LoginScreen implements ActionListener {
                         messageLabel.setForeground(Color.GREEN);
                         messageLabel.setText("Login Successful");
                         frame.dispose();
-                        MainFrame frame = new MainFrame(resultSet.getString("name"));
+                        MainFrame frame = new MainFrame(resultSet.getString("name"), resultSet.getInt("userPoints"));
                     }
                     else {
                         messageLabel.setForeground(Color.RED);
@@ -211,7 +210,7 @@ public class LoginScreen implements ActionListener {
                         messageLabel.setForeground(Color.GREEN);
                         messageLabel.setText("Login Successful");
                         frame.dispose();
-                        MainFrame frame = new MainFrame(resultSet.getString("name"));
+                        MainFrame frame = new MainFrame(resultSet.getString("name"), resultSet.getInt("userPoints"));
                     }
                     else {
                         messageLabel.setForeground(Color.RED);

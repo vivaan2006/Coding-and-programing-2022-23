@@ -20,7 +20,7 @@ public class MainFrame implements ActionListener, MouseListener {
     private JLabel logoutButton;
     // Tabbed pane
 
-    public MainFrame(String name) {
+    public MainFrame(String name, int points) {
 
         buttonPanel = new JPanel();
         buttonPanel.setLayout(null);
@@ -41,10 +41,10 @@ public class MainFrame implements ActionListener, MouseListener {
         tabbedPane.setFont(new Font("Calibri", Font.PLAIN, 16));
         tabbedPane.addTab("<html><body leftmargin=10 topmargin=8 marginwidth=10 marginheight=5 style='font-family:roboto;color:white'>Dashboard</body></html>", new HomePanel(name));
         tabbedPane.addTab("<html><body leftmargin=10 topmargin=8 marginwidth=10 marginheight=5 style='font-family:roboto;color:white'>Calendar</body></html>", new CalendarPanel());
-        tabbedPane.addTab("<html><body leftmargin=10 topmargin=8 marginwidth=10 marginheight=5 style='font-family:roboto;color:white'>Prizes</body></html>", new PrizePanel());
-        tabbedPane.addTab("<html><body leftmargin=10 topmargin=8 marginwidth=10 marginheight=5 style='font-family:roboto;color:white'>Add points</body></html>", new TimePanel());
-        tabbedPane.addTab("<html><body leftmargin=10 topmargin=8 marginwidth=10 marginheight=5 style='font-family:roboto;color:white'>Events</body></html>", new TimePanel());
-        tabbedPane.addTab("<html><body leftmargin=10 topmargin=8 marginwidth=10 marginheight=5 style='font-family:roboto;color:white'>Find Friends</body></html>", new TimePanel());
+        tabbedPane.addTab("<html><body leftmargin=10 topmargin=8 marginwidth=10 marginheight=5 style='font-family:roboto;color:white'>Prizes</body></html>", new PrizePanel(name, points));
+        tabbedPane.addTab("<html><body leftmargin=10 topmargin=8 marginwidth=10 marginheight=5 style='font-family:roboto;color:white'>Add points</body></html>", new TimePanel(name, points));
+        tabbedPane.addTab("<html><body leftmargin=10 topmargin=8 marginwidth=10 marginheight=5 style='font-family:roboto;color:white'>Leaderboard</body></html>", new CalendarPanel());
+        tabbedPane.addTab("<html><body leftmargin=10 topmargin=8 marginwidth=10 marginheight=5 style='font-family:roboto;color:white'>Find Friends</body></html>", new CalendarPanel());
         tabbedPane.setBounds(25,20,960,600);
         tabbedPane.setBackground(new Color(38, 78, 54));
         tabbedPane.setForeground(Color.white);

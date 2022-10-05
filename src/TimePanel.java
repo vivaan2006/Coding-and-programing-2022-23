@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.*;
 
 public class TimePanel extends JPanel implements ActionListener {
 
@@ -14,6 +15,7 @@ public class TimePanel extends JPanel implements ActionListener {
 
     private JButton approval;
     private JButton home;
+    private JButton showPoints;
     private JTextArea describe;
 
     private JComboBox event;
@@ -31,9 +33,14 @@ public class TimePanel extends JPanel implements ActionListener {
     private JComboBox specificVolunteer;
     private String[] specificEventsVolunteer = {"Choose specific event", "Animal shelter", "Tutoring", "CVHS Grader"};
 
-    public TimePanel() {
+    private int dbPoints;
+    private String dbName;
+    public TimePanel(String name, int points) {
         setLayout(null);
         setBackground(new Color(0, 120, 74));
+
+        dbName = name;
+        dbPoints = points;
 
 
         title = new JLabel("Add Time");
@@ -102,6 +109,16 @@ public class TimePanel extends JPanel implements ActionListener {
         approval.setBackground(new Color(0, 180, 0));
         approval.setOpaque(true);
         add(approval);
+
+        showPoints = new JButton("Reset");
+        showPoints.addActionListener(this);
+        showPoints.setBounds(20, 460, 225, 33);
+        showPoints.setFocusable(false);
+        showPoints.setBackground(new Color(0, 180, 0));
+        showPoints.setOpaque(true);
+        add(showPoints);
+
+
     }
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == event) {
@@ -123,6 +140,39 @@ public class TimePanel extends JPanel implements ActionListener {
                 }
             }
         }
+
+        if(e.getSource() == showPoints) {
+            try {
+                Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/loginstudent", "root", "FBLA2023");
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery("select userPoints from login_info_student where name='" + dbName + "'");
+
+                if(resultSet.next()) {
+                    dbPoints = resultSet.getInt("userPoints");
+                }
+
+            } catch (SQLException sqlException) {
+                JOptionPane.showMessageDialog(null, "Error in connection");
+            }
+            System.out.println(dbPoints);
+        }
+
+        if(e.getSource() == approval) {
+
+                dbPoints = dbPoints + 100;
+                JOptionPane.showMessageDialog(null, "Added 100 points");
+                try {
+                    Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/loginstudent", "root", "FBLA2023");
+                    Statement statement = connection.createStatement();
+                    statement.executeUpdate("update login_info_student set userPoints='"+dbPoints+"' where name='"+dbName+"'");
+
+                } catch (SQLException sqlException) {
+                    JOptionPane.showMessageDialog(null, "Error in connection");
+                }
+            }
+
+
+
 
     }
 }
