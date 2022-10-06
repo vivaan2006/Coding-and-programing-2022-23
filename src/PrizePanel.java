@@ -15,7 +15,7 @@ public class PrizePanel extends JPanel implements ActionListener {
     private int gymPoints = 2000;
     private int amazonPoints = 500;
     private int posterPoints = 500;
-//JButtons for prizes
+    //JButtons for prizes
     private JButton homeworkPass;
     private JButton hoodieButton;
     private JButton pizzaButton;
@@ -38,10 +38,10 @@ public class PrizePanel extends JPanel implements ActionListener {
     private JLabel amazon;
     private JLabel poster;
     private JScrollPane scroll;
-    public PrizePanel() {
-        /*JScrollPane scrollPane = new JScrollPane();
+    public PrizePanel(String name, int points) {
+        ScrollPane scrollPane = new ScrollPane();
         scrollPane.setBounds(0,0,1000,600);
-        this.add(scrollPane);*/
+        this.add(scrollPane);
 
         setLayout(null);
         setBackground(new Color(0, 120, 74));
@@ -58,14 +58,14 @@ public class PrizePanel extends JPanel implements ActionListener {
         add(totalPoints);
         // Images
 
-            //hw image
+        //hw image
 
         homeworkImage = new ImageIcon(this.getClass().getResource("images/homeworkpass.png"));
         homework = new JLabel(homeworkImage);
         homework.setBounds(30, 80, 200, 133);
         homework.setSize(200, 133);
         add(homework);
-            //hoodie image
+        //hoodie image
 
         hoodieImage = new ImageIcon(this.getClass().getResource("images/hoodie.jpg"));
         hoodie = new JLabel(hoodieImage);
@@ -73,7 +73,7 @@ public class PrizePanel extends JPanel implements ActionListener {
         hoodie.setSize(200, 133);
         add(hoodie);
 
-            //pizza image
+        //pizza image
         pizzaImage = new ImageIcon(this.getClass().getResource("images/pizzaa.jpeg"));
         pizza = new JLabel(pizzaImage);
         pizza.setBounds(30, 320, 200, 133);
@@ -101,7 +101,7 @@ public class PrizePanel extends JPanel implements ActionListener {
         poster.setSize(200, 133);
         add(poster);
 
-            // JButtons for images
+        // JButtons for images
         homeworkPass = new JButton("Homework Pass: " + homeworkPassPoints);
         homeworkPass.addActionListener(this);
         homeworkPass.setBounds(30, 220, 200, 33);
@@ -169,7 +169,7 @@ public class PrizePanel extends JPanel implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Purchased Hoodie");
                 points = points - hoodiePoints;
                 totalPoints.setText("Total points: " + points);
-             } else {
+            } else {
                 JOptionPane.showMessageDialog(null, "Not enough points to purchase hoodie");
             }
 
