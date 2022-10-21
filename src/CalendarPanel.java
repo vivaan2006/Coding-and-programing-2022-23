@@ -16,19 +16,13 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.table.*;
 
-public class CalendarPanel extends JFrame {
+public class CalendarPanel extends JPanel {
 
         DefaultTableModel model;
         Calendar cal = new GregorianCalendar();
         JLabel label;
 
         CalendarPanel() {
-
-            this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            this.setTitle("Swing Calandar");
-            this.setSize(300,200);
-            this.setLayout(new BorderLayout());
-            this.setVisible(true);
 
 
             label = new JLabel();
@@ -62,8 +56,8 @@ public class CalendarPanel extends JFrame {
             JTable table = new JTable(model);
             JScrollPane pane = new JScrollPane(table);
 
-            this.add(panel,BorderLayout.NORTH);
-            this.add(pane,BorderLayout.CENTER);
+            add(panel,BorderLayout.NORTH);
+            add(pane,BorderLayout.CENTER);
 
             this.updateMonth();
 
