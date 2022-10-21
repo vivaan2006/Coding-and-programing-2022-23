@@ -37,11 +37,9 @@ public class PrizePanel extends JPanel implements ActionListener {
     private JLabel gym;
     private JLabel amazon;
     private JLabel poster;
-    private JScrollPane scroll;
+
     public PrizePanel(String name, int points) {
-        ScrollPane scrollPane = new ScrollPane();
-        scrollPane.setBounds(0,0,1000,600);
-        this.add(scrollPane);
+
 
         setLayout(null);
         setBackground(new Color(0, 120, 74));
@@ -50,6 +48,7 @@ public class PrizePanel extends JPanel implements ActionListener {
     }
 
     public void components() {
+
         //total points
         totalPoints = new JLabel("Total points: " + points);
         totalPoints.setBounds(30, 20, 350, 30);
