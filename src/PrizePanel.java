@@ -38,118 +38,117 @@ public class PrizePanel extends JPanel implements ActionListener {
     private JLabel amazon;
     private JLabel poster;
 
+
     public PrizePanel(String name, int points) {
 
 
         setLayout(null);
         setBackground(new Color(0, 120, 74));
         components();
-
     }
 
     public void components() {
 
-        //total points
-        totalPoints = new JLabel("Total points: " + points);
-        totalPoints.setBounds(30, 20, 350, 30);
-        totalPoints.setFont(new Font("Segoe Print", Font.BOLD, 16));
-        totalPoints.setForeground(Color.BLACK);
-        add(totalPoints);
-        // Images
+            //total points
+            totalPoints = new JLabel("Total points: " + points);
+            totalPoints.setBounds(30, 20, 350, 30);
+            totalPoints.setFont(new Font("Segoe Print", Font.BOLD, 16));
+            totalPoints.setForeground(Color.BLACK);
+            add(totalPoints);
+            // Images
 
-        //hw image
+            //hw image
 
-        homeworkImage = new ImageIcon(this.getClass().getResource("images/homeworkpass.png"));
-        homework = new JLabel(homeworkImage);
-        homework.setBounds(30, 80, 200, 133);
-        homework.setSize(200, 133);
-        add(homework);
-        //hoodie image
+            homeworkImage = new ImageIcon(this.getClass().getResource("images/homeworkpass.png"));
+            homework = new JLabel(homeworkImage);
+            homework.setBounds(30, 80, 200, 133);
+            homework.setSize(200, 133);
+            add(homework);
+            //hoodie image
 
-        hoodieImage = new ImageIcon(this.getClass().getResource("images/hoodie.jpg"));
-        hoodie = new JLabel(hoodieImage);
-        hoodie.setBounds(280, 80, 200, 133);
-        hoodie.setSize(200, 133);
-        add(hoodie);
+            hoodieImage = new ImageIcon(this.getClass().getResource("images/hoodie.jpg"));
+            hoodie = new JLabel(hoodieImage);
+            hoodie.setBounds(280, 80, 200, 133);
+            hoodie.setSize(200, 133);
+            add(hoodie);
 
-        //pizza image
-        pizzaImage = new ImageIcon(this.getClass().getResource("images/pizzaa.jpeg"));
-        pizza = new JLabel(pizzaImage);
-        pizza.setBounds(30, 320, 200, 133);
-        pizza.setSize(200, 133);
-        add(pizza);
+            //pizza image
+            pizzaImage = new ImageIcon(this.getClass().getResource("images/pizzaa.jpeg"));
+            pizza = new JLabel(pizzaImage);
+            pizza.setBounds(30, 320, 200, 133);
+            pizza.setSize(200, 133);
+            add(pizza);
 
-        //membership image
-        gymImage = new ImageIcon(this.getClass().getResource("images/Gym.jpeg"));
-        gym = new JLabel(gymImage);
-        gym.setBounds(530, 80, 200, 133);
-        gym.setSize(200, 133);
-        add(gym);
+            //membership image
+            gymImage = new ImageIcon(this.getClass().getResource("images/Gym.jpeg"));
+            gym = new JLabel(gymImage);
+            gym.setBounds(530, 80, 200, 133);
+            gym.setSize(200, 133);
+            add(gym);
 
-        //amazon gift card
-        amazonImage = new ImageIcon(this.getClass().getResource("images/Giftcard.jpeg"));
-        amazon = new JLabel(amazonImage);
-        amazon.setBounds(280, 320, 200, 133);
-        amazon.setSize(200, 133);
-        add(amazon);
+            //amazon gift card
+            amazonImage = new ImageIcon(this.getClass().getResource("images/Giftcard.jpeg"));
+            amazon = new JLabel(amazonImage);
+            amazon.setBounds(280, 320, 200, 133);
+            amazon.setSize(200, 133);
+            add(amazon);
 
-        // poster image
-        posterImage = new ImageIcon(this.getClass().getResource("images/poster.jpeg"));
-        poster = new JLabel(posterImage);
-        poster.setBounds(530, 320, 200, 133);
-        poster.setSize(200, 133);
-        add(poster);
+            // poster image
+            posterImage = new ImageIcon(this.getClass().getResource("images/poster.jpeg"));
+            poster = new JLabel(posterImage);
+            poster.setBounds(530, 320, 200, 133);
+            poster.setSize(200, 133);
+            add(poster);
 
-        // JButtons for images
-        homeworkPass = new JButton("Homework Pass: " + homeworkPassPoints);
-        homeworkPass.addActionListener(this);
-        homeworkPass.setBounds(30, 220, 200, 33);
-        homeworkPass.setFocusable(false);
-        homeworkPass.setBackground(new java.awt.Color(0, 180, 0));
-        homeworkPass.setOpaque(true);
-        add(homeworkPass);
+            // JButtons for images
+            homeworkPass = new JButton("Homework Pass: " + homeworkPassPoints);
+            homeworkPass.addActionListener(this);
+            homeworkPass.setBounds(30, 220, 200, 33);
+            homeworkPass.setFocusable(false);
+            homeworkPass.setBackground(new java.awt.Color(0, 180, 0));
+            homeworkPass.setOpaque(true);
+            add(homeworkPass);
 
-        hoodieButton = new JButton("Hoodie: " + hoodiePoints);
-        hoodieButton.addActionListener(this);
-        hoodieButton.setBounds(280, 220, 200, 33);
-        hoodieButton.setFocusable(false);
-        hoodieButton.setBackground(new java.awt.Color(0, 180, 0));
-        hoodieButton.setOpaque(true);
-        add(hoodieButton);
+            hoodieButton = new JButton("Hoodie: " + hoodiePoints);
+            hoodieButton.addActionListener(this);
+            hoodieButton.setBounds(280, 220, 200, 33);
+            hoodieButton.setFocusable(false);
+            hoodieButton.setBackground(new java.awt.Color(0, 180, 0));
+            hoodieButton.setOpaque(true);
+            add(hoodieButton);
 
-        pizzaButton = new JButton("Free Pizza: " + pizzaPoints);
-        pizzaButton.addActionListener(this);
-        pizzaButton.setBounds(30, 460, 200, 33);
-        pizzaButton.setFocusable(false);
-        pizzaButton.setBackground(new java.awt.Color(0, 180, 0));
-        pizzaButton.setOpaque(true);
-        add(pizzaButton);
+            pizzaButton = new JButton("Free Pizza: " + pizzaPoints);
+            pizzaButton.addActionListener(this);
+            pizzaButton.setBounds(30, 460, 200, 33);
+            pizzaButton.setFocusable(false);
+            pizzaButton.setBackground(new java.awt.Color(0, 180, 0));
+            pizzaButton.setOpaque(true);
+            add(pizzaButton);
 
-        gymButton = new JButton("One Month Gym access: " + gymPoints);
-        gymButton.addActionListener(this);
-        gymButton.setBounds(530, 220, 200, 33);
-        gymButton.setFocusable(false);
-        gymButton.setBackground(new java.awt.Color(0, 180, 0));
-        gymButton.setOpaque(true);
-        add(gymButton);
+            gymButton = new JButton("One Month Gym access: " + gymPoints);
+            gymButton.addActionListener(this);
+            gymButton.setBounds(530, 220, 200, 33);
+            gymButton.setFocusable(false);
+            gymButton.setBackground(new java.awt.Color(0, 180, 0));
+            gymButton.setOpaque(true);
+            add(gymButton);
 
-        amazonButton = new JButton("$5 Amazon Gift Card: " + amazonPoints);
-        amazonButton.addActionListener(this);
-        amazonButton.setBounds(280, 460, 200, 33);
-        amazonButton.setFocusable(false);
-        amazonButton.setBackground(new java.awt.Color(0, 180, 0));
-        amazonButton.setOpaque(true);
-        add(amazonButton);
+            amazonButton = new JButton("$5 Amazon Gift Card: " + amazonPoints);
+            amazonButton.addActionListener(this);
+            amazonButton.setBounds(280, 460, 200, 33);
+            amazonButton.setFocusable(false);
+            amazonButton.setBackground(new java.awt.Color(0, 180, 0));
+            amazonButton.setOpaque(true);
+            add(amazonButton);
 
-        posterButton = new JButton("Hillcrest Poster: " + posterPoints);
-        posterButton.addActionListener(this);
-        posterButton.setBounds(530, 460, 200, 33);
-        posterButton.setFocusable(false);
-        posterButton.setBackground(new java.awt.Color(0, 180, 0));
-        posterButton.setOpaque(true);
-        add(posterButton);
-
-    }
+            posterButton = new JButton("Hillcrest Poster: " + posterPoints);
+            posterButton.addActionListener(this);
+            posterButton.setBounds(530, 460, 200, 33);
+            posterButton.setFocusable(false);
+            posterButton.setBackground(new java.awt.Color(0, 180, 0));
+            posterButton.setOpaque(true);
+            add(posterButton);
+        }
 
     @Override
     public void actionPerformed(ActionEvent e) {
