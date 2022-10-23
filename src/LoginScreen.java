@@ -30,6 +30,7 @@ public class LoginScreen implements ActionListener {
     private JLabel title;
     private JButton createAccount;
 
+
     public LoginScreen() {
         // Background image
         backgroundImage = new ImageIcon(this.getClass().getResource("images/background.jpg"));
@@ -43,7 +44,6 @@ public class LoginScreen implements ActionListener {
         panel.setBackground(new java.awt.Color(0, 120, 74));
         panel.setBounds(0, 0, 300, 600);
         panel.setSize(300, 600);
-
         // Logo Image
         logoImage = new ImageIcon(this.getClass().getResource("images/logo.png"));
         title = new JLabel(logoImage);
@@ -54,20 +54,20 @@ public class LoginScreen implements ActionListener {
         // Main student login title
         studentCenterTitle = new JLabel("Student Login");
         studentCenterTitle.setBounds(60, 100, 350, 100);
-        studentCenterTitle.setFont(new Font("Segoe Print", Font.BOLD, 32));
+        studentCenterTitle.setFont(new Font("Tahoma", Font.BOLD, 32));
         studentCenterTitle.setForeground(Color.BLACK);
         background.add(studentCenterTitle);
 
         // Student UserID text
         userID = new JLabel("User Name");
         userID.setBounds(60, 200, 100, 50);
-        userID.setFont(new Font("Segoe Print", Font.BOLD, 16));
+        userID.setFont(new Font("Tahoma", Font.BOLD, 16));
         background.add(userID);
 
         // Student password text
         password = new JLabel("Password");
         password.setBounds(60, 300, 100, 50);
-        password.setFont(new Font("Segoe Print", Font.BOLD, 16));
+        password.setFont(new Font("Tahoma", Font.BOLD, 16));
         background.add(password);
 
         // Student UserID Field
@@ -100,20 +100,20 @@ public class LoginScreen implements ActionListener {
         // Main Admin Login Title
         adminCenterTitle = new JLabel("Admin Login");
         adminCenterTitle.setBounds(410, 100, 350, 100);
-        adminCenterTitle.setFont(new Font("Segoe Print", Font.BOLD, 32));
+        adminCenterTitle.setFont(new Font("Tahoma", Font.BOLD, 32));
         adminCenterTitle.setForeground(Color.BLACK);
         background.add(adminCenterTitle);
 
         // Admin UserID text
         adminUserID = new JLabel("Admin ID");
         adminUserID.setBounds(410, 200, 100, 50);
-        adminUserID.setFont(new Font("Segoe Print", Font.BOLD, 16));
+        adminUserID.setFont(new Font("Tahoma", Font.BOLD, 16));
         background.add(adminUserID);
 
         // Admin password text
         adminPassword = new JLabel("Password");
         adminPassword.setBounds(410, 300, 100, 50);
-        adminPassword.setFont(new Font("Segoe Print", Font.BOLD, 16));
+        adminPassword.setFont(new Font("Tahoma", Font.BOLD, 16));
         background.add(adminPassword);
 
         // Admin UserID Field
@@ -138,7 +138,7 @@ public class LoginScreen implements ActionListener {
         // Message Label
         messageLabel = new JLabel();
         messageLabel.setBounds(140, 500, 400, 50);
-        messageLabel.setFont(new Font("Segoe Print", Font.BOLD, 20));
+        messageLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
         background.add(messageLabel);
 
         // create account

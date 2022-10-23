@@ -42,23 +42,25 @@ public class TimePanel extends JPanel implements ActionListener {
         dbName = name;
         dbPoints = points;
 
-
         title = new JLabel("Add Time");
         title.setBounds(325, 10, 500, 100);
-        title.setFont(new Font("Segoe Print", Font.BOLD, 40));
-        title.setForeground(Color.BLACK);
+        title.setFont(new Font("Nanomaton", Font.BOLD, 50));
+        title.setForeground(Color.LIGHT_GRAY);
         add(title);
 
         // Event label
         eventLabel = new JLabel("Choose Event");
         eventLabel.setBounds(75, 160, 200, 50);
-        eventLabel.setFont(new Font("Segoe Print", Font.BOLD, 24));
+        eventLabel.setFont(new Font("Nanomaton", Font.PLAIN, 24));
+        eventLabel.setForeground(Color.LIGHT_GRAY);
         add(eventLabel);
+
 
         // Describe Label
         describeLabel = new JLabel("Describe your Experience");
         describeLabel.setBounds(400, 160, 330, 50);
-        describeLabel.setFont(new Font("Segoe Print", Font.BOLD, 24));
+        describeLabel.setFont(new Font("Nanomaton", Font.PLAIN, 24));
+        describeLabel.setForeground(Color.LIGHT_GRAY);
         add(describeLabel);
 
         // Describe field
@@ -77,7 +79,8 @@ public class TimePanel extends JPanel implements ActionListener {
         // Specific football event label
         specificLabelFootball = new JLabel("Football events");
         specificLabelFootball.setBounds(75, 300, 350, 50);
-        specificLabelFootball.setFont(new Font("Segoe Print", Font.BOLD, 24));
+        specificLabelFootball.setFont(new Font("Nanomaton", Font.PLAIN, 24));
+        specificLabelFootball.setForeground(Color.LIGHT_GRAY);
 
         // Football specific combobox
         specificFootball = new JComboBox(specificEventsFootball);
@@ -86,7 +89,8 @@ public class TimePanel extends JPanel implements ActionListener {
         // Specific Basketball event label
         specificLabelBasketball = new JLabel("Basketball events");
         specificLabelBasketball.setBounds(75, 300, 350, 50);
-        specificLabelBasketball.setFont(new Font("Segoe Print", Font.BOLD, 24));
+        specificLabelBasketball.setFont(new Font("Nanomaton", Font.PLAIN, 24));
+        specificLabelBasketball.setForeground(Color.LIGHT_GRAY);
 
         // Basketball specific combobox
         specificBasketball = new JComboBox(specificEventsBasketball);
@@ -95,7 +99,8 @@ public class TimePanel extends JPanel implements ActionListener {
         // Specific Volunteer event label
         specificLabelVolunteer = new JLabel("Volunteer Events");
         specificLabelVolunteer.setBounds(75, 300, 350, 50);
-        specificLabelVolunteer.setFont(new Font("Segoe Print", Font.BOLD, 24));
+        specificLabelVolunteer.setFont(new Font("Nanomaton", Font.PLAIN, 24));
+        specificLabelVolunteer.setForeground(Color.LIGHT_GRAY);
 
         // Volunteer specific combobox
         specificVolunteer = new JComboBox(specificEventsVolunteer);

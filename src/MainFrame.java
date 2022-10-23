@@ -24,7 +24,7 @@ public class MainFrame implements ActionListener, MouseListener {
 
         buttonPanel = new JPanel();
         buttonPanel.setLayout(null);
-        buttonPanel.setBackground(new Color(0, 120,74));
+        buttonPanel.setBackground(new Color(49, 83, 153));
         buttonPanel.setBounds(0, 0, 1000, 600);
         buttonPanel.setSize(1000, 600);
         buttonPanel.setBorder(new EmptyBorder(15, 0, 10, 0));
@@ -38,22 +38,22 @@ public class MainFrame implements ActionListener, MouseListener {
         frame.setVisible(true);
 
         var tabbedPane = new JTabbedPane();
-        tabbedPane.setFont(new Font("Calibri", Font.PLAIN, 16));
-        tabbedPane.addTab("<html><body leftmargin=10 topmargin=8 marginwidth=10 marginheight=5 style='font-family:roboto;color:white'>Dashboard</body></html>", new HomePanel(name));
-        tabbedPane.addTab("<html><body leftmargin=10 topmargin=8 marginwidth=10 marginheight=5 style='font-family:roboto;color:white'>Calendar</body></html>", new CalendarPanel());
-        tabbedPane.addTab("<html><body leftmargin=10 topmargin=8 marginwidth=10 marginheight=5 style='font-family:roboto;color:white'>Prizes</body></html>", new PrizePanel(name, points));
-        tabbedPane.addTab("<html><body leftmargin=10 topmargin=8 marginwidth=10 marginheight=5 style='font-family:roboto;color:white'>Add points</body></html>", new TimePanel(name, points));
-        tabbedPane.addTab("<html><body leftmargin=10 topmargin=8 marginwidth=10 marginheight=5 style='font-family:roboto;color:white'>Leaderboard</body></html>", new CalendarPanel());
-        tabbedPane.addTab("<html><body leftmargin=10 topmargin=8 marginwidth=10 marginheight=5 style='font-family:roboto;color:white'>Find Friends</body></html>", new CalendarPanel());
+        tabbedPane.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        tabbedPane.addTab("<html><body leftmargin=10 topmargin=8 marginwidth=10 marginheight=5 style='font-family:Tahoma;color:white'>Dashboard</body></html>", new HomePanel(name));
+        tabbedPane.addTab("<html><body leftmargin=10 topmargin=8 marginwidth=10 marginheight=5 style='font-family:Tahoma;color:white'>Calendar</body></html>", new CalendarPanel());
+        tabbedPane.addTab("<html><body leftmargin=10 topmargin=8 marginwidth=10 marginheight=5 style='font-family:Tahoma;color:white'>Prizes</body></html>", new PrizePanel(name, points));
+        tabbedPane.addTab("<html><body leftmargin=10 topmargin=8 marginwidth=10 marginheight=5 style='font-family:Tahoma;color:white'>Add points</body></html>", new TimePanel(name, points));
+        tabbedPane.addTab("<html><body leftmargin=10 topmargin=8 marginwidth=10 marginheight=5 style='font-family:Tahoma;color:white'>Leaderboard</body></html>", new CalendarPanel());
+        tabbedPane.addTab("<html><body leftmargin=10 topmargin=8 marginwidth=10 marginheight=5 style='font-family:Tahoma;color:white'>Find Friends</body></html>", new CalendarPanel());
         tabbedPane.setBounds(25,20,960,600);
-        tabbedPane.setBackground(new Color(38, 78, 54));
+        tabbedPane.setBackground(new Color(0, 255, 0));
         tabbedPane.setForeground(Color.white);
         buttonPanel.add(tabbedPane);
 
 
         logoutPanel = new JPanel();
         logoutPanel.setLayout(null);
-        logoutPanel.setBackground(new Color(0, 120, 74));
+        logoutPanel.setBackground(new Color(49, 83, 153));
         logoutPanel.setBounds(860, 10, 100, 40);
         logoutPanel.setSize(100, 40);
         buttonPanel.add(logoutPanel);
@@ -67,12 +67,12 @@ public class MainFrame implements ActionListener, MouseListener {
         logoutPanel.add(logoutButton);
 
 
-        UIManager.put("TabbedPane.borderHightlightColor",new Color(38, 78, 54));
-        UIManager.put("TabbedPane.darkShadow",new Color(38, 78, 54));
-        UIManager.put("TabbedPane.light",new Color(38, 78, 54));
-        UIManager.put("TabbedPane.selectHighlight",new Color(38, 78, 54));
-        UIManager.put("TabbedPane.darkShadow",new Color(38, 78, 54));
-        UIManager.put("TabbedPane.focus",new Color(38, 78, 54));
+        UIManager.put("TabbedPane.borderHightlightColor",new Color(255, 0, 0));
+        UIManager.put("TabbedPane.darkShadow",new Color(246, 0, 0));
+        UIManager.put("TabbedPane.light",new Color(243, 3, 3));
+        UIManager.put("TabbedPane.selectHighlight",new Color(241, 9, 9));
+        UIManager.put("TabbedPane.darkShadow",new Color(236, 6, 6));
+        UIManager.put("TabbedPane.focus",new Color(236, 6, 6));
 
 
     }
@@ -110,6 +110,6 @@ public class MainFrame implements ActionListener, MouseListener {
 
     @Override
     public void mouseExited(MouseEvent e) {
-        logoutPanel.setBackground(new Color(0, 120, 74));
+        logoutPanel.setBackground(new Color(255, 252, 252));
     }
 }
