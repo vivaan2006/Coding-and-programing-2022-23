@@ -24,6 +24,12 @@ public class CalendarPanel extends JPanel {
 
         CalendarPanel() {
 
+            this.setSize(300,200);
+            this.setLayout(new BorderLayout());
+            this.setBackground(new Color(0, 120, 74));
+            this.setVisible(true);
+
+
 
             label = new JLabel();
             label.setHorizontalAlignment(SwingConstants.CENTER);
